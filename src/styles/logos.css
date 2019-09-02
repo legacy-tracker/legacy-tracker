@@ -1,0 +1,9 @@
+.logo-rapper {
+  height: 90vh;
+  width: 100vw;
+  border: 1px solid black;
+}
+.logo-rapper img {
+  border-radius: 50%;
+  padding: 2px;
+}

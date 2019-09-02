@@ -1,12 +1,15 @@
 import React from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
-import Hashrouter from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+import routes from "./routes";
 
 function App() {
-  <Hashrouter>
-    return <div className="App"></div>;
-  </Hashrouter>;
+  return (
+    <HashRouter>
+      <div className="App">{routes}</div>
+    </HashRouter>
+  );
 }
 
 export default App;
