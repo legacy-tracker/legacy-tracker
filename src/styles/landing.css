@@ -1,14 +1,71 @@
-.landing-page {
+nav {
+  position: absolute;
+  z-index: 2;
+  width: 30%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  word-spacing: 0.1em;
+  font-size: 1.2em;
+  /* opacity: 0.6; */
+}
+.landing-page {
+  background-image: url("../images/login.png");
+  height: 100vh;
+}
+.nav-container {
+  position: absolute;
+  z-index: 1;
+  background: #605d5d8e;
+  width: 100%;
+  height: 3.5em;
+  top: 0;
+}
+.nav-triangle {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  width: 30%;
+  height: 0;
+  border-top: 3.5em solid #203b27;
+  border-right: 50px solid transparent;
+}
+.welcome {
+  color: white;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+.sub-welcome {
+  color: white;
+  position: absolute;
+  top: 200px;
+  left: 100px;
+}
+.login-btns {
+  position: absolute;
+  top: 350px;
+  left: 100px;
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+}
+.landing-btn {
+  background: #94e769;
+  border: none;
+  width: 11em;
+  height: 4em;
+  color: black;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-size: 1em;
+  letter-spacing: 0.1em;
 }
 
-.background-image {
-  z-index: -1;
-  position: absolute;
-  width: 100vw;
-  height: 70vh;
-  top: 20px;
+.btn-words {
+  font-size: 1.3em;
 }
