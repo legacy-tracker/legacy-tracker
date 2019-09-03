@@ -1,0 +1,42 @@
+#background {
+  background: rgb(125, 123, 123);
+  height: 100vh;
+}
+
+.register-card {
+  width: 30%;
+  margin-left: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  background: rgba(222, 242, 212, 0.66);
+  margin-top: 3%;
+  padding: 20px;
+  border-radius: 10px;
+}
+.register-input {
+  width: 90%;
+  padding: 1em;
+  border-radius: 5px;
+  border: none;
+}
+.register-text {
+  margin: 0.5em;
+  font-size: 1em;
+  margin-right: 70%;
+  width: 100%;
+}
+
+.register-btn {
+  background: #94e769;
+  border: none;
+  width: 11em;
+  height: 4em;
+  color: black;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  margin: 1em;
+}
