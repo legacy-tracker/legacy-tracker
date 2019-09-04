@@ -37,6 +37,7 @@ export default function Register() {
         />
         <h2 className="register-text">Password:</h2>
         <input
+          type="password"
           className="register-input"
           placeholder="password"
           onChange={handlePassword}
