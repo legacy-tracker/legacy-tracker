@@ -1,49 +1,85 @@
-import React, { useState } from "react";
+import React from "react";
+import { Redirect } from "react-router-dom";
 import "../styles/register.css";
+import { connect } from "react-redux";
+import { register } from "../ducks/authReducer";
 
-export default function Register() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  function handleEmail(e) {
-    setEmail(e.target.value);
+export class Register extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      firstName: "",
+      lastName: "",
+      username: "",
+      password: ""
+    };
   }
+  handleChangeFirst = e => {
+    this.setState({ firstName: e.target.value });
+  };
+  handleChangelLast = e => {
+    this.setState({ lastName: e.target.value });
+  };
+  handleChangeUsername = e => {
+    this.setState({ username: e.target.value });
+  };
+  handleChangePassword = e => {
+    this.setState({ password: e.target.value });
+  };
+  handleRegister = e => {
+    this.props.register(
+      this.state.firstName,
+      this.state.lastName,
+      this.state.username,
+      this.state.password
+    );
+  };
 
-  function handlePassword(e) {
-    setPassword(e.target.value);
-  }
-  console.log(email, password);
-  return (
-    <div id="background">
-      <div className="register-card">
-        <h1>Register</h1>
-        <h2 className="register-text">First Name:</h2>
-        <input
-          className="register-input"
-          placeholder="first name"
-          onChange={handleEmail}
-        />
-        <h2 className="register-text">Last Name:</h2>
-        <input
-          className="register-input"
-          placeholder="last name"
-          onChange={handleEmail}
-        />
-        <h2 className="register-text">Username:</h2>
-        <input
-          className="register-input"
-          placeholder="username"
-          onChange={handleEmail}
-        />
-        <h2 className="register-text">Password:</h2>
-        <input
-          type="password"
-          className="register-input"
-          placeholder="password"
-          onChange={handlePassword}
-        />
-        <button className="register-btn">Submit</button>
+  render() {
+    return (
+      <div id="background">
+        {this.props.redirect === true ? <Redirect to="./dashboard" /> : null}
+        <div className="register-card">
+          <h1>Register</h1>
+          <h2 className="register-text">First Name:</h2>
+          <input
+            className="register-input"
+            placeholder="first name"
+            onChange={this.handleChangeFirst}
+          />
+          <h2 className="register-text">Last Name:</h2>
+          <input
+            className="register-input"
+            placeholder="last name"
+            onChange={this.handleChangelLast}
+          />
+          <h2 className="register-text">Username:</h2>
+          <input
+            className="register-input"
+            placeholder="username"
+            onChange={this.handleChangeUsername}
+          />
+          <h2 className="register-text">Password:</h2>
+          <input
+            className="register-input"
+            placeholder="password"
+            onChange={this.handleChangePassword}
+          />
+          <button onClick={this.handleRegister} className="register-btn">
+            Submit
+          </button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
+
+let mapStatetoProps = reduxState => {
+  return {
+    redirect: reduxState.auth.redirect
+  };
+};
+export default connect(
+  mapStatetoProps,
+  { register }
+)(Register);
