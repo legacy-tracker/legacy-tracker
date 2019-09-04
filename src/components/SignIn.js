@@ -23,6 +23,7 @@ export class SignIn extends React.Component {
   handleLogin = e => {
     this.props.login(this.state.username, this.state.password);
   };
+
   componentDidMount() {
     Axios.get("/api/user")
       .then(res => {
@@ -49,6 +50,7 @@ export class SignIn extends React.Component {
           />
           <h2 className="register-text">Password</h2>
           <input
+            type="password"
             className="register-input"
             placeholder="password"
             onChange={this.handlePassword}
