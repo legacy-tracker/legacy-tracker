@@ -9,14 +9,23 @@ import Logos from "./Logos";
 
 export default function Dashboard() {
   return (
-    <>
-      <h1> Welcome User!</h1>
-      <main className="dashboard">
+    <div>
+      <h1 id="welcome"> Welcome User!</h1>
+      <div className="dashboard">
+        <div className="nav-container-2">
+          <span className="nav-triangle-2"></span>
+          <nav>Fantasy Football Legacy</nav>
+        </div>
         <LegacyTeamList />
-
-        <News />
+        <Players />
+        <body className="bigbody">
+          <div className="nfl-pic">
+            <div className="nfl-pic-top">hi</div>
+            <News />
+          </div>
+        </body>
         <SideMenu />
-      </main>
-    </>
+      </div>
+    </div>
   );
 }

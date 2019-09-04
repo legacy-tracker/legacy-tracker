@@ -1,10 +1,12 @@
 .my-teams {
+  /* display:flex; */
   border: 1px solid blue;
   height: 80vh;
   width: 20vw;
 }
 
 .side-menu {
+  /* display:flex; */
   border: 1px solid red;
   height: 80vh;
   width: 20vw;
@@ -12,13 +14,54 @@
 }
 
 .dashboard {
+  /* display:flex; */
   border: 1px solid black;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   display: flex;
+  background-color: rgb(246, 246, 246);
 }
 .news {
+
+  display:flex;
   border: 1px solid rgb(80, 76, 76);
-  height: 80vh;
+  height: 28.8em;
   width: 60vw;
+  overflow: scroll;
+}
+
+.nav-container-2 {
+  position: absolute;
+  z-index: 1;
+  background: #080808c2;
+  width: 100%;
+  height: 5.1em;
+  top: 0;
+
+
+}
+
+.nav-triangle-2 {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  width: 30%;
+  height: 0;
+  border-top: 5.1em solid #203b27;
+  border-right: 50px solid transparent;
+}
+
+.nfl-pic {
+  flex-direction: column;
+  display:flex;
+  border: solid red;
+ 
+
+}
+.nfl-pic-top{
+  border:solid blue;
+  height: 70vh;
+  background-image:url('../images/111.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
