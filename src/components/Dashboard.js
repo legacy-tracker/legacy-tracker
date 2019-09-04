@@ -3,7 +3,7 @@ import React from "react";
 // import { logout } from "../ducks/authReducer";
 // import { Route, Switch } from "react-router-dom";
 import LegacyTeamList from "./LegacyTeamList";
-import Players from "./Players";
+
 import SideMenu from "./SideMenu";
 import "../styles/dashboard.css";
 import News from "./News";
