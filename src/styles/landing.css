@@ -16,6 +16,8 @@ nav {
 .landing-page {
   background-image: url("../images/login.png");
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .nav-container {
   position: absolute;
