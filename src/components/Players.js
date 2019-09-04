@@ -36,24 +36,8 @@ class Player extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <button
-          onClick={() => {
-            this.filterForTeam("LA");
-          }}
-        >
-          OAK
-        </button>
-        <button
-          onClick={() => {
-            console.log(this.state.teamPlayers[2].stats);
-          }}
-        >
-          Get third player's stats
-        </button>
-      </div>
-    );
+    console.log(this.state.teamPlayers);
+    return <div></div>;
   }
 }
 
