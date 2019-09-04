@@ -4,7 +4,6 @@ import LegacyTeamList from "./LegacyTeamList";
 import Players from "./Players";
 import SideMenu from "./SideMenu";
 import "../styles/dashboard.css";
-import dashboardRoutes from "../dashboardRoutes";
 import News from "./News";
 import Logos from "./Logos";
 
