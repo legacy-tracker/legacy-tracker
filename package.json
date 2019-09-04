@@ -3,16 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.19.0",
-=======
     "bcryptjs": "^2.4.3",
->>>>>>> master
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "massive": "^6.0.0",
     "react": "^16.9.0",
+    "react-background-slideshow": "^1.0.4",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
