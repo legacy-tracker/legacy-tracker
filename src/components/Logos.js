@@ -4,6 +4,10 @@ import "../styles/dashboard.css";
 import LegacyTeamList from "./LegacyTeamList";
 import SideMenu from "./SideMenu";
 
+function filterForTeam(team) {
+  console.log(team);
+}
+
 export default function Logos() {
   return (
     <div className="dashboard">
@@ -13,130 +17,162 @@ export default function Logos() {
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/NE/NE_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("NE")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/MIA/MIA_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("MIA")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/BUF/BUF_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("BUF")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/NYJ/NYJ_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("NYJ")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/BAL/BAL_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("BAL")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/PIT/PIT_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("PIT")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/CLE/CLE_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("CLE")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/CIN/CIN_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("CIN")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/HOU/HOU_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("HOU")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/IND/IND_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("IND")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/TEN/TEN_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("TEN")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/JAX/JAX_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("JAX")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/KC/KC_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("KC")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/LAC/LAC_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("LAC")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/DEN/DEN_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("DEN")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/OAK/OAK_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("OAK")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/DAL/DAL_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("DAL")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/PHI/PHI_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("PHI")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/WAS/WAS_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("WAS")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/NYG/NYG_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("NYG")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/CHI/CHI_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("CHI")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/MIN/MIN_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("MIN")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/GB/GB_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("GB")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/DET/DET_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("DET")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/NO/NO_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("NO")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/ATL/ATL_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("ATL")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/CAR/CAR_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("CAR")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/TB/TB_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("TB")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/LA/LA_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("LA")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/SEA/SEA_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("SEA")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/SF/SF_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("SF")}
         />
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/ARZ/ARZ_logo-80x90.gif"
           alt="logo"
+          onClick={this.filterForTeam("ARZ")}
         />
       </div>
       <SideMenu />

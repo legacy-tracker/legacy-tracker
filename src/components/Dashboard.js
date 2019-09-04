@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import LegacyTeamList from "./LegacyTeamList";
+import Players from "./Players";
 import SideMenu from "./SideMenu";
 import "../styles/dashboard.css";
 import dashboardRoutes from "../dashboardRoutes";
@@ -13,10 +14,8 @@ export default function Dashboard() {
       <h1> Welcome User!</h1>
       <main className="dashboard">
         <LegacyTeamList />
-        <Switch>
-          <Route path="/" component={News} />
-          <Route path="/logos" component={Logos} />
-        </Switch>
+        <Players />
+        <News />
         <SideMenu />
       </main>
     </>
