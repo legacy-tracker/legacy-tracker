@@ -1,5 +1,8 @@
 import React from "react";
 import "../styles/logos.css";
+import "../styles/dashboard.css";
+import LegacyTeamList from "./LegacyTeamList";
+import SideMenu from "./SideMenu";
 
 function filterForTeam(team) {
   console.log(team);
@@ -7,9 +10,10 @@ function filterForTeam(team) {
 
 export default function Logos() {
   return (
-    <>
-      <h1>Slect A Team</h1>
+    <div className="dashboard">
+      <LegacyTeamList />
       <div className="logo-rapper">
+        <h1>Slect A Team</h1>
         <img
           src="http://i.nflcdn.com/static/site/7.5/img/teams/NE/NE_logo-80x90.gif"
           alt="logo"
@@ -171,6 +175,7 @@ export default function Logos() {
           onClick={this.filterForTeam("ARZ")}
         />
       </div>
-    </>
+      <SideMenu />
+    </div>
   );
 }
