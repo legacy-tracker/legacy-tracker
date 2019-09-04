@@ -9,6 +9,7 @@ const initialState = {
 
 const LOGIN = "LOGIN";
 const REGISTER = "REGISTER";
+const LOGOUT = "LOGOUT";
 
 export function register(firstName, lastName, username, password) {
   let data = axios.post("/auth/register", {
@@ -32,6 +33,14 @@ export function login(username, password) {
   };
 }
 
+export function logout() {
+  let data = axios.get("/auth/logout");
+  return {
+    type: LOGOUT,
+    payload: data
+  };
+}
+
 export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
@@ -39,6 +48,8 @@ export default function(state = initialState, action) {
       return { ...state, username: payload.data, redirect: true };
     case `${REGISTER}_FULFILLED`:
       return { ...state, username: payload.data, redirect: true };
+    case `${LOGOUT}_FULFILLED`:
+      return { ...state, username: payload.date, redirect: true };
     default:
       return state;
   }
