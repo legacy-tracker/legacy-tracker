@@ -38,7 +38,7 @@ export default function(state = initialState, action) {
     case `${LOGIN}_FULFILLED`:
       return { ...state, username: payload.data, redirect: true };
     case `${REGISTER}_FULFILLED`:
-      return { ...state, username: payload.data };
+      return { ...state, username: payload.data, redirect: true };
     default:
       return state;
   }
