@@ -35,17 +35,7 @@ class Player extends React.Component {
 
   render() {
     console.log(this.state.teamPlayers);
-    return (
-      <div>
-        <button
-          onClick={() => {
-            this.filterForTeam("LA");
-          }}
-        >
-          OAK
-        </button>
-      </div>
-    );
+    return <div></div>;
   }
 }
 

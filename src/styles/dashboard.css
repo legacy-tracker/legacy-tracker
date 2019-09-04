@@ -16,13 +16,13 @@
 .dashboard {
   /* display:flex; */
   border: 1px solid black;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   display: flex;
   background-color: rgb(246, 246, 246);
 }
 .news {
-  margin-top: 20em;
+
   display:flex;
   border: 1px solid rgb(80, 76, 76);
   height: 28.8em;
@@ -52,11 +52,16 @@
 }
 
 .nfl-pic {
-
+  flex-direction: column;
   display:flex;
   border: solid red;
-  height: 32vh;
-  width:60vw;
+ 
 
 }
-
+.nfl-pic-top{
+  border:solid blue;
+  height: 70vh;
+  background-image:url('../images/111.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}

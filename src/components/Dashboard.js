@@ -9,7 +9,7 @@ export default function Dashboard() {
   return (
     <div>
       <h1 id="welcome"> Welcome User!</h1>
-      <main className="dashboard">
+      <div className="dashboard">
         <div className="nav-container-2">
           <span className="nav-triangle-2"></span>
           <nav>Fantasy Football Legacy</nav>
@@ -18,11 +18,12 @@ export default function Dashboard() {
         <Players />
         <body className="bigbody">
           <div className="nfl-pic">
+            <div className="nfl-pic-top">hi</div>
             <News />
           </div>
         </body>
         <SideMenu />
-      </main>
+      </div>
     </div>
   );
 }
