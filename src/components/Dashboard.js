@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import LegacyTeamList from "./LegacyTeamList";
-import Players from "./Players";
+
 import SideMenu from "./SideMenu";
 import "../styles/dashboard.css";
 import News from "./News";
@@ -13,7 +13,7 @@ export default function Dashboard() {
       <h1> Welcome User!</h1>
       <main className="dashboard">
         <LegacyTeamList />
-        <Players />
+
         <News />
         <SideMenu />
       </main>
