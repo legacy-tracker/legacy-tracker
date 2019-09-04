@@ -12,13 +12,14 @@
     "lodash": "^4.17.15",
     "massive": "^6.0.0",
     "react": "^16.9.0",
-    "react-chartjs-2": "^2.7.6",
     "react-background-slideshow": "^1.0.4",
+    "react-chartjs-2": "^2.7.6",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "redux-promise-middleware": "^6.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
