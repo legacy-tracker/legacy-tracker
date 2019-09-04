@@ -6,8 +6,9 @@ class Player extends React.Component {
     super();
     this.state = {
       data: [],
-      currentTeam: "",
-      teamPlayers: []
+      currentTeam: "LAR",
+      teamPlayers: [],
+      playerStats: {}
     };
   }
 
@@ -20,6 +21,7 @@ class Player extends React.Component {
         this.setState({ data: res.data.players });
         console.log(this.state.data);
       })
+      .then(() => {})
       .catch(e => {
         console.log(e);
       });
@@ -34,7 +36,6 @@ class Player extends React.Component {
   }
 
   render() {
-    console.log(this.state.teamPlayers);
     return (
       <div>
         <button
@@ -43,6 +44,13 @@ class Player extends React.Component {
           }}
         >
           OAK
+        </button>
+        <button
+          onClick={() => {
+            console.log(this.state.teamPlayers[2].stats);
+          }}
+        >
+          Get third player's stats
         </button>
       </div>
     );

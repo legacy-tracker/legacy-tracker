@@ -5,6 +5,7 @@ import Landing from "./components/Landing";
 import SignIn from "./components/SignIn";
 import Logos from "./components/Logos";
 import Register from "./components/Register";
+import Stats from "./components/Stats";
 
 export default (
   <Switch>
@@ -13,5 +14,6 @@ export default (
     <Route component={SignIn} path="/signin" />
     <Route component={Register} path="/register" />
     <Route component={Logos} path="/logos" />
+    <Route component={Stats} path="/stats" />
   </Switch>
 );
