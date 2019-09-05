@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../styles/stats.css";
 import StatsInput from "../components/Stats/StatsInput";
-import { stat } from "fs";
 
 export class Stats extends Component {
   constructor() {
@@ -29,7 +28,17 @@ export class Stats extends Component {
   };
 
   handleSubmit = () => {
-    this.setState({ season1: {}, season2: {}, season3: {} });
+    this.setState({
+      season1: {},
+      season2: {},
+      season3: {},
+      season0: {},
+      name: "",
+      season0Pts: 0,
+      season1Pts: 0,
+      season2Pts: 0,
+      season3Pts: 0
+    });
     axios
       .all([
         axios.get(
@@ -72,11 +81,13 @@ export class Stats extends Component {
         }
         if (season2.length !== 0) {
           this.setState({ season2: season2[0].stats });
+          this.setState({ teamAbbr: season2[0].teamAbbr });
           this.setState({ season2Pts: season2[0].seasonPts });
         }
         if (season3.length !== 0) {
           this.setState({ season3: season3[0].stats });
           this.setState({ season3Pts: season3[0].seasonPts });
+          this.setState({ name: season3[0].name });
         }
         if (season0.length !== 0) {
           this.setState({ season0: season0[0].stats });
