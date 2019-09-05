@@ -7,6 +7,7 @@ import Logos from "./components/Logos";
 import Register from "./components/Register";
 import PlayerCard from "./components/PlayerCard";
 import Stats from "./components/Stats";
+import Roster from "./components/Roster";
 
 export default (
   <Switch>
@@ -17,5 +18,6 @@ export default (
     <Route component={Logos} path="/logos" />
     <Route component={PlayerCard} path="/playercard" />
     <Route component={Stats} path="/stats" />
+    <Route component={Roster} path="/roster" />
   </Switch>
 );
