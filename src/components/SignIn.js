@@ -53,6 +53,7 @@ export class SignIn extends React.Component {
             type="password"
             className="register-input"
             placeholder="password"
+            type="password"
             onChange={this.handlePassword}
           />
 

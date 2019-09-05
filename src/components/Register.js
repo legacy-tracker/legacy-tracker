@@ -64,6 +64,7 @@ export class Register extends React.Component {
             className="register-input"
             type="password"
             placeholder="password"
+            type="password"
             onChange={this.handleChangePassword}
           />
           <button onClick={this.handleRegister} className="register-btn">

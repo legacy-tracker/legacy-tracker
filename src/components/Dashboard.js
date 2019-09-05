@@ -3,7 +3,7 @@ import React from "react";
 // import { logout } from "../ducks/authReducer";
 // import { Route, Switch } from "react-router-dom";
 import LegacyTeamList from "./LegacyTeamList";
-import Players from "./Players";
+
 import SideMenu from "./SideMenu";
 import "../styles/dashboard.css";
 import News from "./News";
@@ -25,21 +25,18 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <h1 id="welcome"> Welcome User!</h1>
         <div className="dashboard">
-          <div className="nav-container-2">
-            <button>Logout</button>
-            <span className="nav-triangle-2"></span>
+          <div className="dash-nav-container">
+            <span className="nav-triangle"></span>
             <nav>Fantasy Football Legacy</nav>
+            <h1 className="user-welcome">Welcome user!</h1>
+            <button className="logout-btn">Logout</button>
           </div>
           <LegacyTeamList />
-          <Players />
-          <body className="bigbody">
-            <div className="nfl-pic">
-              <div className="nfl-pic-top">hi</div>
-              <News />
-            </div>
-          </body>
+          <div className="dashboard-main">
+            <div className="nfl-pic-top"></div>
+            <News />
+          </div>
           <SideMenu />
         </div>
       </div>
