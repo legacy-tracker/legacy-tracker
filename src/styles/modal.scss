@@ -1,0 +1,43 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.83);
+
+  .modal-main {
+    position: fixed;
+    background-color: #464242;
+    width: 40%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+  }
+  h1 {
+    margin-right: 20%;
+    font-size: 2em;
+    letter-spacing: 5px;
+  }
+  h2 {
+    margin-right: 63%;
+    font-size: 1em;
+    letter-spacing: 3px;
+  }
+  .modal-input-container {
+    display: flex;
+  }
+  input {
+    width: 80%;
+  }
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
