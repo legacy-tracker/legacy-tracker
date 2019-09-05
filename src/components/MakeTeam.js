@@ -13,7 +13,13 @@ class MakeTeam extends React.Component {
     console.log(this.props);
     return (
       <div className="modal-input-container">
-        <input onChange={this.handleName} placeholder="Team Name"></input>
+        <input
+          type="text"
+          onChange={this.handleName}
+          placeholder="Team Name"
+          required
+        />
+
         <select onChange={this.handleYear}>
           <option value="2019">2019</option>
           <option value="2018">2018</option>
