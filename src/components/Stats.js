@@ -77,7 +77,6 @@ export class Stats extends Component {
           this.setState({ season1: season1[0].stats });
           this.setState({ teamAbbr: season1[0].teamAbbr });
           this.setState({ season1Pts: season1[0].seasonPts });
-          console.log(season1[0]);
         }
         if (season2.length !== 0) {
           this.setState({ season2: season2[0].stats });
