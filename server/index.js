@@ -4,6 +4,11 @@ const massive = require("massive");
 const session = require("express-session");
 
 const { register, login, logout } = require("./controllers/authController");
+// const {
+//   getUserTeams,
+//   createTeam,
+//   deleteTeam
+// } = require("./controllers/playerTeamController");
 const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET } = process.env;
 
 const app = express();
@@ -28,6 +33,11 @@ massive(CONNECTION_STRING).then(db => {
 app.post("/auth/register", register);
 app.post("/auth/login", login);
 app.get("/auth/logout", logout);
+
+// app.use((req, res, next) => {
+//   if (req.session.user) return next();
+//   else res.sendStatus(401);
+// });
 app.get("/api/user", function(req, res) {
   if (req.session.user) {
     res.status(200).json(req.session.user);
@@ -36,6 +46,9 @@ app.get("/api/user", function(req, res) {
   }
 });
 
-app.listen(SERVER_PORT, () => console.log(`Listen on ${SERVER_PORT}`));
+//user teams
+// app.get("/api/userteam", getUserTeams);
+// app.post("api/userteam", createTeam);
+// app.delete("/api/userteam/:id", deleteTeam);
 
-//user
+app.listen(SERVER_PORT, () => console.log(`Listen on ${SERVER_PORT}`));
