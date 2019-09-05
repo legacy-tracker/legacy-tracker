@@ -81,7 +81,15 @@
 .team-cards {
   background: #464242;
   margin: 20px;
-  height: 10em;
+  height: 12em;
+  width: 80%;
+  color: white;
+  border-radius: 5px;
+}
+.create-team-card {
+  background: #464242;
+  margin: 20px;
+  height: 15em;
   width: 80%;
   color: white;
   border-radius: 5px;
@@ -90,7 +98,29 @@
   background-color: #94e769;
   border: none;
   text-transform: uppercase;
-  margin: 20px;
-  padding: 10px 60px;
+  margin: 10px;
+  padding: 10px 40px;
   color: #464242;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 5px;
+  font-size: 0.9em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.active,
+.challenge-btns:hover {
+  border: 1px solid grey;
+}
+
+.card-header {
+  padding-top: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+.card-subheader {
+  margin-top: 5px;
+  letter-spacing: 3px;
+  font-weight: bold;
 }
