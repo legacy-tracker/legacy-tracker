@@ -2,9 +2,10 @@ import React from "react";
 import "../styles/logos.css";
 import "../styles/dashboard.css";
 import LegacyTeamList from "./LegacyTeamList";
-import SideMenu from "./SideMenu";
+import CurrentTeam from "../components/CurrentTeam";
 import axios from "axios";
 import { connect } from "react-redux";
+import { addQb, addRb, addWr, addTe, addK } from "../ducks/legacyTeamReducer";
 
 class Logos extends React.Component {
   constructor() {
@@ -20,6 +21,22 @@ class Logos extends React.Component {
       k: []
     };
   }
+
+  handleAddQb = e => {
+    this.props.addQb(e.target.value);
+  };
+  handleAddRb = e => {
+    this.props.addRb(e.target.value);
+  };
+  handleAddWr = e => {
+    this.props.addWr(e.target.value);
+  };
+  handleAddTe = e => {
+    this.props.addTe(e.target.value);
+  };
+  handleAddK = e => {
+    this.props.addK(e.target.value);
+  };
 
   componentDidMount() {
     if (this.props.year == "2019") {
@@ -275,39 +292,49 @@ class Logos extends React.Component {
           {this.state.qb.map(qb => (
             <>
               <li>{qb.name}</li>
-              <button>Add</button>
+              <button onClick={this.handleAddQb} name="qb" value={qb.name}>
+                Add
+              </button>
             </>
           ))}
           <h1>RBs</h1>
           {this.state.rb.map(rb => (
             <>
               <li>{rb.name}</li>
-              <button>Add</button>
+              <button onClick={this.handleAddRb} name="rb" value={rb.name}>
+                Add
+              </button>
             </>
           ))}
           <h1>WRs</h1>
           {this.state.wr.map(wr => (
             <>
               <li>{wr.name}</li>
-              <button>Add</button>
+              <button onClick={this.handleAddWr} name="wr" value={wr.name}>
+                Add
+              </button>
             </>
           ))}
           <h1>TEs</h1>
           {this.state.te.map(te => (
             <>
               <li>{te.name}</li>
-              <button>Add</button>
+              <button onClick={this.handleAddTe} name="te" value={te.name}>
+                Add
+              </button>
             </>
           ))}
           <h1>K</h1>
           {this.state.k.map(k => (
             <>
               <li>{k.name}</li>
-              <button>Add</button>
+              <button onClick={this.handleAddK} name="k" value={k.name}>
+                Add
+              </button>
             </>
           ))}
         </div>
-        <SideMenu />
+        <CurrentTeam />
       </div>
     );
   }
@@ -318,4 +345,7 @@ let mapStatetoProps = reduxState => {
     year: reduxState.legacy.year
   };
 };
-export default connect(mapStatetoProps)(Logos);
+export default connect(
+  mapStatetoProps,
+  { addQb, addRb, addWr, addTe, addK }
+)(Logos);
