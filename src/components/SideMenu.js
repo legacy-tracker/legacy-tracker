@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../styles/dashboard.css";
+import MakeTeam from "./MakeTeam";
 
 export default class SideMenu extends Component {
   constructor() {
