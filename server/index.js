@@ -28,6 +28,11 @@ massive(CONNECTION_STRING).then(db => {
 app.post("/auth/register", register);
 app.post("/auth/login", login);
 app.get("/auth/logout", logout);
+
+// app.use((req, res, next) => {
+//   if (req.session.user) return next();
+//   else res.sendStatus(401);
+// });
 app.get("/api/user", function(req, res) {
   if (req.session.user) {
     res.status(200).json(req.session.user);
