@@ -8,6 +8,7 @@ import Register from "./components/Register";
 import PlayerCard from "./components/PlayerCard";
 import Stats from "./components/Stats";
 import Roster from "./components/Roster";
+import Carousel from "./components/SlideShow/Carousel";
 
 export default (
   <Switch>
@@ -19,5 +20,6 @@ export default (
     <Route component={PlayerCard} path="/playercard" />
     <Route component={Stats} path="/stats" />
     <Route component={Roster} path="/roster" />
+    <Route component={Carousel} path="/carousel" />
   </Switch>
 );
