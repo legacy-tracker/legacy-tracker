@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import LegacyTeamList from "./LegacyTeamList";
-
 import SideMenu from "./SideMenu";
 import "../styles/dashboard.css";
 import News from "./News";
@@ -17,7 +16,7 @@ export default function Dashboard() {
           <nav>Fantasy Football Legacy</nav>
         </div>
         <LegacyTeamList />
-        <Players />
+        {/* <Players /> */}
         <body className="bigbody">
           <div className="nfl-pic">
             <div className="nfl-pic-top">hi</div>
