@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import "../styles/news.css";
 import NewsTeamList from "./News/NewsTeamList.";
+import NewsFormatTime from "./News/NewsFormatTime";
 class News extends React.Component {
   constructor() {
     super();
@@ -15,7 +16,7 @@ class News extends React.Component {
 
   componentDidMount() {
     axios
-      .get("https://api.fantasy.nfl.com/v1/players/news/?format=json&count=350")
+      .get("https://api.fantasy.nfl.com/v1/players/news/?format=json&count=950")
       .then(res => {
         this.setState({ news: res.data.news });
       })
@@ -37,10 +38,10 @@ class News extends React.Component {
     } else {
       this.setState({ showPopup: "no-popup" });
     }
-    if (this.state.counter > 1) {
+    if (this.state.counter > 0) {
       axios
         .get(
-          "https://api.fantasy.nfl.com/v1/players/news/?format=json&count=350"
+          "https://api.fantasy.nfl.com/v1/players/news/?format=json&count=950"
         )
         .then(res => {
           this.setState({ news: res.data.news });
@@ -106,7 +107,7 @@ class News extends React.Component {
                 {filteredHeadline}
               </h3>
             </div>
-            <h4 className="news-item-time">Time: {newsArticle.timestamp}</h4>
+            <NewsFormatTime time={newsArticle.timestamp} />
             <p>{filteredBody}</p>
             <h4 className="impact">Impact:</h4>
             <p>{filteredAnalysis}</p>
