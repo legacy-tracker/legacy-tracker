@@ -73,7 +73,7 @@ export default class Logos extends React.Component {
       <div className="dashboard">
         <LegacyTeamList />
         <div className="logo-rapper">
-          <h1>Slect A Team</h1>
+          <h1>Select A Team</h1>
           <img
             src="http://i.nflcdn.com/static/site/7.5/img/teams/NE/NE_logo-80x90.gif"
             alt="logo"
