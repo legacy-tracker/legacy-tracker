@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { changeYear, changeName } from "../ducks/legacyTeamReducer";
-
+import "../styles/modal.scss";
 class MakeTeam extends React.Component {
   handleYear = e => {
     this.props.changeYear(e.target.value);
@@ -12,7 +12,7 @@ class MakeTeam extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div>
+      <div className="modal-input-container">
         <input onChange={this.handleName} placeholder="Team Name"></input>
         <select onChange={this.handleYear}>
           <option value="2019">2019</option>
