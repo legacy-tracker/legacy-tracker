@@ -94,3 +94,6 @@
   padding: 10px 60px;
   color: #464242;
 }
+.dashboard-main {
+  border: solid red;
+}
