@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/dashboard.css";
+import MakeTeam from "./MakeTeam";
 
 export default function SideMenu() {
   return (
@@ -11,6 +12,7 @@ export default function SideMenu() {
           <button className="challenge-btns">make a team</button>
         </Link>
       </div>
+      <MakeTeam />
     </aside>
   );
 }
