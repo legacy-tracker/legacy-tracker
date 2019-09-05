@@ -30,7 +30,6 @@ export default class SideMenu extends Component {
             >
               CREATE A TEAM
             </button>
-            <Link to="/logos"></Link>
           </div>
         </div>
       </aside>
@@ -38,20 +37,23 @@ export default class SideMenu extends Component {
   }
 }
 
-const Modal = ({ handleClose, show, children }) => {
+const Modal = ({ handleClose, show }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
         <h1>FANTASY FOOTBALL LEGACY</h1>
-        <h2>Enter your team name:</h2>
+        <h2>Enter your team name and season:</h2>
         <MakeTeam />
+        <button className="modal-close" onClick={handleClose}>
+          close
+        </button>
         <Link to="/logos">
-          <button>submit</button>
+          <button type="submit" className="modal-submit">
+            submit
+          </button>
         </Link>
-
-        <button onClick={handleClose}>close</button>
       </section>
     </div>
   );
