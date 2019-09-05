@@ -35,7 +35,6 @@ class News extends React.Component {
         .replace(/&apos;/g, "'")
         .replace(/&quot;/g, '"')
         .replace(/&amp;/g, "&");
-      const filteredTeamAbbr = newsArticle.teamAbbr.replace(/LA/g, "LAR");
       //Only renders team logo if teamAbbr is provided from axios call
       const conditionalLogo = () => {
         if (newsArticle.teamAbbr !== "") {
@@ -43,7 +42,7 @@ class News extends React.Component {
             <img
               src={
                 "https://a.espncdn.com/i/teamlogos/nfl/500/" +
-                filteredTeamAbbr +
+                newsArticle.teamAbbr +
                 ".png"
               }
               className="small-logo"

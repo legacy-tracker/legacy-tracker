@@ -1,0 +1,7 @@
+.season-stats {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  align-content: center;
+  justify-content: space-around;
+}
