@@ -4,8 +4,9 @@ import "../styles/dashboard.css";
 import LegacyTeamList from "./LegacyTeamList";
 import SideMenu from "./SideMenu";
 import axios from "axios";
+import { connect } from "react-redux";
 
-export default class Logos extends React.Component {
+class Logos extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -21,17 +22,51 @@ export default class Logos extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get(
-        "https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2019&format=json&statType=seasonProjectedStats"
-      )
-      .then(res => {
-        this.setState({ data: res.data.players });
-        console.log(this.state.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+    if (this.props.year == "2019") {
+      axios
+        .get(
+          "https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2019&format=json&statType=seasonProjectedStats"
+        )
+        .then(res => {
+          this.setState({ data: res.data.players });
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    } else if (this.props.year == "2018") {
+      axios
+        .get(
+          "https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&week=1&format=json"
+        )
+        .then(res => {
+          this.setState({ data: res.data.players });
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    } else if (this.props.year == "2017") {
+      axios
+        .get(
+          "https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2017&week=1&format=json"
+        )
+        .then(res => {
+          this.setState({ data: res.data.players });
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    } else if (this.props.year == "2016") {
+      axios
+        .get(
+          "https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2016&week=1&format=json"
+        )
+        .then(res => {
+          this.setState({ data: res.data.players });
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
   }
 
   filterForTeam = team => {
@@ -63,12 +98,9 @@ export default class Logos extends React.Component {
     });
   };
   render() {
-    console.log(this.state.teamPlayers);
-    console.log(this.state.qb);
-    console.log(this.state.rb);
-    console.log(this.state.wr);
-    console.log(this.state.te);
-    console.log(this.state.k);
+    console.log(this.props.year);
+    console.log(this.state.data);
+
     return (
       <div className="dashboard">
         <LegacyTeamList />
@@ -234,25 +266,45 @@ export default class Logos extends React.Component {
             alt="logo"
             onClick={() => this.filterForTeam("ARI")}
           />
+          <img
+            src="https://static.nfl.com/static/content/public/static/wildcat/assets/img/application-shell/shield/default.svg"
+            alt="logg"
+            onClick={() => this.filterForTeam("")}
+          />
           <h1>QBs</h1>
           {this.state.qb.map(qb => (
-            <li>{qb.name}</li>
+            <>
+              <li>{qb.name}</li>
+              <button>Add</button>
+            </>
           ))}
           <h1>RBs</h1>
           {this.state.rb.map(rb => (
-            <li>{rb.name}</li>
+            <>
+              <li>{rb.name}</li>
+              <button>Add</button>
+            </>
           ))}
           <h1>WRs</h1>
           {this.state.wr.map(wr => (
-            <li>{wr.name}</li>
+            <>
+              <li>{wr.name}</li>
+              <button>Add</button>
+            </>
           ))}
           <h1>TEs</h1>
           {this.state.te.map(te => (
-            <li>{te.name}</li>
+            <>
+              <li>{te.name}</li>
+              <button>Add</button>
+            </>
           ))}
           <h1>K</h1>
           {this.state.k.map(k => (
-            <li>{k.name}</li>
+            <>
+              <li>{k.name}</li>
+              <button>Add</button>
+            </>
           ))}
         </div>
         <SideMenu />
@@ -260,3 +312,10 @@ export default class Logos extends React.Component {
     );
   }
 }
+
+let mapStatetoProps = reduxState => {
+  return {
+    year: reduxState.legacy.year
+  };
+};
+export default connect(mapStatetoProps)(Logos);
