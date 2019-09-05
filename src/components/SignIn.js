@@ -22,6 +22,7 @@ export class SignIn extends React.Component {
   };
   handleLogin = e => {
     this.props.login(this.state.username, this.state.password);
+    this.state = {};
   };
 
   componentDidMount() {
@@ -48,6 +49,7 @@ export class SignIn extends React.Component {
             placeholder="username"
             onChange={this.handleEmail}
           />
+
           <h2 className="register-text">Password</h2>
           <input
             type="password"
