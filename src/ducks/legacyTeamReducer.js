@@ -1,22 +1,17 @@
 const initState = {
   year: 2019,
   name: "",
-<<<<<<< HEAD
-  team: []
-=======
+  team: [],
   qb: [],
   rb: [],
   wr: [],
   te: [],
   k: []
->>>>>>> master
 };
 
 const CHANGE_YEAR = "CHANGE_YEAR";
 const CHANGE_NAME = "CHANGE_NAME";
-<<<<<<< HEAD
 const ADD_TEAM = "ADD_TEAM";
-=======
 const ADD_Qb = "ADD_QB";
 const ADD_RB = "ADD_RB";
 const ADD_WR = "ADD_WR";
@@ -53,7 +48,6 @@ export function addK(value) {
     payload: value
   };
 }
->>>>>>> master
 
 export function changeYear(value) {
   return {
@@ -82,10 +76,8 @@ export default function reducer(state = initState, action) {
       return { ...state, year: payload };
     case CHANGE_NAME:
       return { ...state, name: payload };
-<<<<<<< HEAD
     case ADD_TEAM:
       return { ...state, team: payload };
-=======
     case ADD_Qb:
       return { ...state, qb: [...state.qb, ", ", payload] };
     case ADD_RB:
@@ -96,7 +88,6 @@ export default function reducer(state = initState, action) {
       return { ...state, te: [...state.te, ", ", payload] };
     case ADD_K:
       return { ...state, qb: [...state.k, ", ", payload] };
->>>>>>> master
     default:
       return state;
   }
