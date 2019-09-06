@@ -4,6 +4,7 @@ import "../styles/dashboard.css";
 import LegacyTeamList from "./LegacyTeamList";
 import CurrentTeam from "../components/CurrentTeam";
 import axios from "axios";
+import Loader from "./Loader";
 import { connect } from "react-redux";
 import { addQb, addRb, addWr, addTe, addK } from "../ducks/legacyTeamReducer";
 
