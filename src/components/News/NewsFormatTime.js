@@ -11,12 +11,6 @@ export default function NewsFormatTime(props) {
   const splitDay = day.split("-");
   const splitHour = hour.split(":");
 
-  const newDay = splitDay[1] + "/" + splitDay[2];
-  const newHour = splitHour[0] + ":" + splitHour[1];
-
-  console.log(splitDay);
-  console.log(splitHour);
-
   function getDay(month, day) {
     if (day === "01") {
       var newDay = "1";

@@ -1,6 +1,7 @@
 const initState = {
   year: 2019,
   name: "",
+  team: [],
   qb: [],
   rb: [],
   wr: [],
@@ -10,6 +11,7 @@ const initState = {
 
 const CHANGE_YEAR = "CHANGE_YEAR";
 const CHANGE_NAME = "CHANGE_NAME";
+const ADD_TEAM = "ADD_TEAM";
 const ADD_Qb = "ADD_QB";
 const ADD_RB = "ADD_RB";
 const ADD_WR = "ADD_WR";
@@ -59,6 +61,12 @@ export function changeName(value) {
     payload: value
   };
 }
+export function addTeam(value) {
+  return {
+    type: ADD_TEAM,
+    payload: value
+  };
+}
 
 export default function reducer(state = initState, action) {
   const { type, payload } = action;
@@ -68,6 +76,8 @@ export default function reducer(state = initState, action) {
       return { ...state, year: payload };
     case CHANGE_NAME:
       return { ...state, name: payload };
+    case ADD_TEAM:
+      return { ...state, team: payload };
     case ADD_Qb:
       return { ...state, qb: [...state.qb, ", ", payload] };
     case ADD_RB:
