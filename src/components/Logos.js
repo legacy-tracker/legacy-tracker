@@ -22,8 +22,13 @@ class Logos extends React.Component {
     };
   }
 
-  handleAddQb = e => {
+  handleAddQb = (e, qb) => {
     this.props.addQb(e.target.value);
+    // console.log(qb)
+    // const {id, name, teamAbbr, position} = qb;
+    // axios.post('/api/userPlayers', {
+    //   id, name, height, position,
+    // })
   };
   handleAddRb = e => {
     this.props.addRb(e.target.value);
@@ -292,7 +297,11 @@ class Logos extends React.Component {
           {this.state.qb.map(qb => (
             <>
               <li>{qb.name}</li>
-              <button onClick={this.handleAddQb} name="qb" value={qb.name}>
+              <button
+                onClick={e => this.handleAddQb(e, qb)}
+                name="qb"
+                value={qb.name}
+              >
                 Add
               </button>
             </>

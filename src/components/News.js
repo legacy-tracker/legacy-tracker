@@ -3,11 +3,12 @@ import axios from "axios";
 import "../styles/news.css";
 import NewsTeamList from "./News/NewsTeamList.";
 import NewsFormatTime from "./News/NewsFormatTime";
+import Loader from "./Loader";
+
 class News extends React.Component {
   constructor() {
     super();
     this.state = {
-      news: [],
       teamAbbr: "",
       showPopup: "no-popup",
       counter: 0
@@ -62,6 +63,9 @@ class News extends React.Component {
   };
 
   render() {
+    if (!this.state.news) {
+      return <Loader />;
+    }
     const displayNews = this.state.news.map((newsArticle, index) => {
       //These replaces are used to properly load apostrophes, quotes, and the & symbol
       const filteredBody = newsArticle.body
