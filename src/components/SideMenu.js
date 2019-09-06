@@ -3,8 +3,18 @@ import { Link } from "react-router-dom";
 import "../styles/dashboard.css";
 import "../styles/modal.scss";
 import MakeTeam from "./MakeTeam";
+import { connect } from "react-redux";
+import axios from "axios";
 
-export default class SideMenu extends Component {
+class SideMenu extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: "",
+      changeName: ""
+      // team: []
+    };
+  }
   state = { show: false };
 
   showModal = () => {
@@ -50,7 +60,21 @@ const Modal = ({ handleClose, show }) => {
           close
         </button>
         <Link to="/logos">
-          <button type="submit" className="modal-submit">
+          <button
+            onSubmit={e => {
+              e.preventDefault();
+              axios
+                .post("/api/team", {
+                  // team: this.props.team,
+                  changeName: this.props.changeName,
+                  username: this.props.username
+                })
+                .then(response => this.setState({ data: response.data.team }))
+                .catch(err => console.log(err));
+            }}
+            type="submit"
+            className="modal-submit"
+          >
             submit
           </button>
         </Link>
@@ -58,3 +82,25 @@ const Modal = ({ handleClose, show }) => {
     </div>
   );
 };
+
+// let mapStatetoProps = reduxState => {
+//   return {
+//     username: state.auth.username,
+//     changeName: state.legacy.changeName
+//   };
+// };
+
+// export default connect(
+//   mapStatetoProps,
+//   {updateUsername, }
+// );
+
+//   (state, ownprops) => {
+//     return {
+//       username: state.auth.username
+//       // team: state.legacy.team
+//     };
+//   },
+//   {}
+// )(SideMenu);
+export default SideMenu;
