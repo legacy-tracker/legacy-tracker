@@ -3,7 +3,7 @@ import axios from "axios";
 import "../styles/stats.css";
 import StatsInput from "../components/Stats/StatsInput";
 import FantasyPointsByYear from "./Stats/FantasyPointsByYear";
-
+import RushingYardsPerYear from "./Stats/RB";
 export class Stats extends Component {
   constructor() {
     super();

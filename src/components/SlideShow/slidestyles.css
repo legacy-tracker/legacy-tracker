@@ -1,28 +1,31 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
-* {
+/* * {
   margin: 0;
   padding: 0;
   font-family: "Quicksand", sans-serif;
   color: #fff;
 }
-
+.car-container {
+  height: 400px;
+  width: 1200px;
+}
 /*====== WIDTH ======*/
-.screenW {
+/* .screenW {
   width: 100vw;
 }
 .fullW {
   width: 100%;
-}
+} */
 /*====== HEIGHT ======*/
-.screenH {
+/* .screenH {
   height: 100vh;
-}
-.fullH {
+} */
+/* .fullH {
   height: 100%;
-}
-.height70 {
+} */
+/* .height70 {
   height: 70px;
-}
+} */
 /*====== BG COLOR ======*/
 .dGray {
   background-color: #333;
@@ -93,12 +96,4 @@
 }
 .flex8 {
   flex: 8;
-}
-
-/*====== CUSTOM ======*/
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  transition: background-color 1s ease-in-out;
 }
