@@ -3,7 +3,7 @@ import axios from "axios";
 import "../styles/stats.css";
 import StatsInput from "../components/Stats/StatsInput";
 import FantasyPointsByYear from "./Stats/FantasyPointsByYear";
-
+import RushingYardsPerYear from "./Stats/RB";
 export class Stats extends Component {
   constructor() {
     super();
@@ -119,6 +119,13 @@ export class Stats extends Component {
           stat2017={this.state.season2Pts}
           stat2016={this.state.season3Pts}
         />
+        <RushingYardsPerYear
+          stat2019={this.state.season0[15]}
+          stat2018={this.state.season1[15]}
+          stat2017={this.state.season2[15]}
+          stat2016={this.state.season3[15]}
+        />
+
         <div className="season-stats">
           <div>
             <h3>2019(Projections): {this.state.season0Pts} points</h3>

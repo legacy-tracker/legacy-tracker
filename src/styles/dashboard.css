@@ -57,7 +57,13 @@
 .nfl-pic-top {
   margin-top: 5em;
   height: 40vh;
-  background-image: url("../images/111.jpg");
+  background-image: url("https://www.att.com/idpassets/sales/landingpages/nflst-landing-page/hero/STU-6073_NFLST-generic-hero_enhanced-dsk.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.carousel-container {
+  height: 50vh;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
