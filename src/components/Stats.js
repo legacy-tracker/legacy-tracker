@@ -3,7 +3,7 @@ import axios from "axios";
 import "../styles/stats.css";
 import StatsInput from "../components/Stats/StatsInput";
 import FantasyPointsByYear from "./Stats/FantasyPointsByYear";
-
+import RushingYardsPerYear from "./Stats/RB";
 export class Stats extends Component {
   constructor() {
     super();
@@ -101,10 +101,76 @@ export class Stats extends Component {
     console.log("HandleSelect");
   };
 
+  handleRender() {
+    if (this.state.position === "QB") {
+      return (
+        <div>
+          <FantasyPointsByYear
+            stat2019={this.state.season0Pts}
+            stat2018={this.state.season1Pts}
+            stat2017={this.state.season2Pts}
+            stat2016={this.state.season3Pts}
+          />
+          <FantasyPointsByYear
+            stat2019={this.state.season0Pts}
+            stat2018={this.state.season1Pts}
+            stat2017={this.state.season2Pts}
+            stat2016={this.state.season3Pts}
+          />
+        </div>
+      );
+    } else if (this.state.position === "RB") {
+      return (
+        <div>
+          <FantasyPointsByYear
+            stat2019={this.state.season0Pts}
+            stat2018={this.state.season1Pts}
+            stat2017={this.state.season2Pts}
+            stat2016={this.state.season3Pts}
+          />
+        </div>
+      );
+    } else if (this.state.position === "WR") {
+      return (
+        <div>
+          <FantasyPointsByYear
+            stat2019={this.state.season0Pts}
+            stat2018={this.state.season1Pts}
+            stat2017={this.state.season2Pts}
+            stat2016={this.state.season3Pts}
+          />
+        </div>
+      );
+    } else if (this.state.position === "TE") {
+      return (
+        <div>
+          <FantasyPointsByYear
+            stat2019={this.state.season0Pts}
+            stat2018={this.state.season1Pts}
+            stat2017={this.state.season2Pts}
+            stat2016={this.state.season3Pts}
+          />
+        </div>
+      );
+    } else if (this.state.position === "K") {
+      return (
+        <div>
+          <FantasyPointsByYear
+            stat2019={this.state.season0Pts}
+            stat2018={this.state.season1Pts}
+            stat2017={this.state.season2Pts}
+            stat2016={this.state.season3Pts}
+          />
+        </div>
+      );
+    } else return <h1>Error</h1>;
+  }
+
   render() {
     const { season1, season2, season3, season0 } = this.state;
     return (
       <div>
+        {this.handleRender()}
         <StatsInput
           handleIdInput={this.handleIdInput}
           handleSelect={this.handleSelect}
@@ -113,12 +179,6 @@ export class Stats extends Component {
         <h1>
           {this.state.name} [{this.state.teamAbbr}]
         </h1>
-        <FantasyPointsByYear
-          stat2019={this.state.season0Pts}
-          stat2018={this.state.season1Pts}
-          stat2017={this.state.season2Pts}
-          stat2016={this.state.season3Pts}
-        />
         <div className="season-stats">
           <div>
             <h3>2019(Projections): {this.state.season0Pts} points</h3>

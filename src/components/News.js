@@ -121,8 +121,8 @@ class News extends React.Component {
     });
     return (
       <div className="news-content">
-        <button onClick={this.handlePickTeamButton}>
-          Pick a team to show the news for
+        <button className="news-btn" onClick={this.handlePickTeamButton}>
+          Filter your news
         </button>
         {/* pick team popup */}
 

@@ -7,6 +7,7 @@ import SideMenu from "./SideMenu";
 import "../styles/dashboard.css";
 import News from "./News";
 import Logos from "./Logos";
+import Carousel from "./SlideShow/Carousel";
 
 class Dashboard extends React.Component {
   // logout() {
@@ -33,6 +34,7 @@ class Dashboard extends React.Component {
           </div>
           <LegacyTeamList />
           <div className="dashboard-main">
+            {/* <Carousel /> */}
             <div className="nfl-pic-top"></div>
             <News />
           </div>
