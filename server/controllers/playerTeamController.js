@@ -1,16 +1,19 @@
 const getUserTeams = (req, res) => {
   const db = req.app.get("db");
-  db.get_userLegacyteam([req.body]).then(userteam => {
+  db.get_userLegacyteam([req.body]).then(team => {
     res.status(200).json(team);
   });
 };
 
 const createTeam = (req, res) => {
-  const { teamName } = req.body;
+  const { name, username } = req.body;
   const db = req.app.get("db");
-  db.add_team([teamName]).then(() => {
-    res.sendStatus(200);
-  });
+  db.create_team([name, username])
+    .then(() => {
+      console.log(req.body);
+      res.sendStatus(200);
+    })
+    .catch(err => console.log(err));
 };
 
 const deleteTeam = (req, res) => {
@@ -19,7 +22,7 @@ const deleteTeam = (req, res) => {
   db.delete_team(id).then(() => res.sendStatus(200));
 };
 
-module.export = {
+module.exports = {
   getUserTeams,
   createTeam,
   deleteTeam

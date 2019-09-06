@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const initialState = {
-  username: null,
+  username: "",
   password: null,
   error: "",
   redirect: false
@@ -10,6 +10,7 @@ const initialState = {
 const LOGIN = "LOGIN";
 const REGISTER = "REGISTER";
 const LOGOUT = "LOGOUT";
+const UPDATE_USERNAME = "UPDATE_USERNAME";
 
 export function register(firstName, lastName, username, password) {
   let data = axios.post("/auth/register", {
@@ -40,16 +41,24 @@ export function logout() {
     payload: data
   };
 }
+export function updateUsername(username) {
+  return {
+    type: UPDATE_USERNAME,
+    payload: username
+  };
+}
 
 export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case `${LOGIN}_FULFILLED`:
-      return { ...state, username: payload.data, redirect: true };
+      return { ...state, username: payload.data.username, redirect: true };
     case `${REGISTER}_FULFILLED`:
       return { ...state, username: payload.data, redirect: true };
     case `${LOGOUT}_FULFILLED`:
-      return { ...state, username: payload.date, redirect: true };
+      return { ...state, username: payload.data, redirect: true };
+    case `${UPDATE_USERNAME}_FULFILLED`:
+      return { ...state, username: payload.data };
     default:
       return state;
   }

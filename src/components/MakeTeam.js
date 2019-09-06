@@ -2,6 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { changeYear, changeName } from "../ducks/legacyTeamReducer";
 import "../styles/modal.scss";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
 class MakeTeam extends React.Component {
   handleYear = e => {
     this.props.changeYear(e.target.value);
@@ -13,7 +16,32 @@ class MakeTeam extends React.Component {
     console.log(this.props);
     return (
       <div className="modal-input-container">
-        <input onChange={this.handleName} placeholder="Team Name"></input>
+        <input
+          type="text"
+          onChange={this.handleName}
+          placeholder="Team Name"
+          required
+        />
+        <button
+          onClick={() => {
+            axios
+              .post("/api/team", {
+                name: this.props.name,
+                // team: this.props.team,
+                username: this.props.username
+              })
+              .then(response => {
+                console.log("then");
+                this.setState({ data: response.data.team });
+              })
+
+              .catch(err => console.log(err));
+          }}
+          className="modal-submit"
+          type="submit"
+        >
+          <Link to="/logos">submit</Link>
+        </button>
         <select onChange={this.handleYear}>
           <option value="2019">2019</option>
           <option value="2018">2018</option>
@@ -27,7 +55,8 @@ class MakeTeam extends React.Component {
 let mapStatetoProps = reduxState => {
   return {
     year: reduxState.legacy.year,
-    name: reduxState.legacy.name
+    name: reduxState.legacy.name,
+    username: reduxState.auth.username
   };
 };
 export default connect(

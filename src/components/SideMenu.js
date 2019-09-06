@@ -3,8 +3,18 @@ import { Link } from "react-router-dom";
 import "../styles/dashboard.css";
 import "../styles/modal.scss";
 import MakeTeam from "./MakeTeam";
+import { connect } from "react-redux";
+import axios from "axios";
 
-export default class SideMenu extends Component {
+class SideMenu extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: ""
+      // name: ""
+      // team: []
+    };
+  }
   state = { show: false };
 
   showModal = () => {
@@ -15,7 +25,8 @@ export default class SideMenu extends Component {
     this.setState({ show: false });
   };
 
-  render() {
+  render(props) {
+    console.log(this.props);
     return (
       <aside className="side-menu">
         <div className="create-team-card">
@@ -30,7 +41,6 @@ export default class SideMenu extends Component {
             >
               CREATE A TEAM
             </button>
-            <Link to="/logos"></Link>
           </div>
         </div>
       </aside>
@@ -38,21 +48,41 @@ export default class SideMenu extends Component {
   }
 }
 
-const Modal = ({ handleClose, show, children }) => {
+const Modal = ({ handleClose, show }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
         <h1>FANTASY FOOTBALL LEGACY</h1>
-        <h2>Enter your team name:</h2>
+        <h2>Enter your team name and season:</h2>
         <MakeTeam />
-        <Link to="/logos">
-          <button>submit</button>
-        </Link>
+        <button className="modal-close" onClick={handleClose}>
+          close
+        </button>
+        {/* <Link to="/logos"> */}
 
-        <button onClick={handleClose}>close</button>
+        {/* </Link> */}
       </section>
     </div>
   );
 };
+
+let mapStatetoProps = reduxState => {
+  return {
+    username: reduxState.auth.username,
+    name: reduxState.legacy.name
+  };
+};
+
+export default connect(mapStatetoProps)(SideMenu);
+
+//   (state, ownprops) => {
+//     return {
+//       username: state.auth.username
+//       // team: state.legacy.team
+//     };
+//   },
+//   {}
+// )(SideMenu);
+// export default SideMenu;
