@@ -10,8 +10,8 @@ class SideMenu extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
-      changeName: ""
+      username: ""
+      // name: ""
       // team: []
     };
   }
@@ -25,7 +25,8 @@ class SideMenu extends Component {
     this.setState({ show: false });
   };
 
-  render() {
+  render(props) {
+    console.log(this.props);
     return (
       <aside className="side-menu">
         <div className="create-team-card">
@@ -59,41 +60,22 @@ const Modal = ({ handleClose, show }) => {
         <button className="modal-close" onClick={handleClose}>
           close
         </button>
-        <Link to="/logos">
-          <button
-            onSubmit={e => {
-              e.preventDefault();
-              axios
-                .post("/api/team", {
-                  // team: this.props.team,
-                  changeName: this.props.changeName,
-                  username: this.props.username
-                })
-                .then(response => this.setState({ data: response.data.team }))
-                .catch(err => console.log(err));
-            }}
-            type="submit"
-            className="modal-submit"
-          >
-            submit
-          </button>
-        </Link>
+        {/* <Link to="/logos"> */}
+
+        {/* </Link> */}
       </section>
     </div>
   );
 };
 
-// let mapStatetoProps = reduxState => {
-//   return {
-//     username: state.auth.username,
-//     changeName: state.legacy.changeName
-//   };
-// };
+let mapStatetoProps = reduxState => {
+  return {
+    username: reduxState.auth.username,
+    name: reduxState.legacy.name
+  };
+};
 
-// export default connect(
-//   mapStatetoProps,
-//   {updateUsername, }
-// );
+export default connect(mapStatetoProps)(SideMenu);
 
 //   (state, ownprops) => {
 //     return {
@@ -103,4 +85,4 @@ const Modal = ({ handleClose, show }) => {
 //   },
 //   {}
 // )(SideMenu);
-export default SideMenu;
+// export default SideMenu;
