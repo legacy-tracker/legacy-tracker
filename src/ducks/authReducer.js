@@ -52,7 +52,7 @@ export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case `${LOGIN}_FULFILLED`:
-      return { ...state, username: payload.data, redirect: true };
+      return { ...state, username: payload.data.username, redirect: true };
     case `${REGISTER}_FULFILLED`:
       return { ...state, username: payload.data, redirect: true };
     case `${LOGOUT}_FULFILLED`:

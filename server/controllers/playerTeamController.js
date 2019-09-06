@@ -6,11 +6,14 @@ const getUserTeams = (req, res) => {
 };
 
 const createTeam = (req, res) => {
-  const { changeName } = req.body;
+  const { name, username } = req.body;
   const db = req.app.get("db");
-  db.create_team([changeName]).then(() => {
-    res.sendStatus(200);
-  });
+  db.create_team([name, username])
+    .then(() => {
+      console.log(req.body);
+      res.sendStatus(200);
+    })
+    .catch(err => console.log(err));
 };
 
 const deleteTeam = (req, res) => {

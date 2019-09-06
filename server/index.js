@@ -49,7 +49,7 @@ app.get("/api/user", function(req, res) {
 // user teams
 
 app.get("/api/team", getUserTeams);
-app.post("api/team", createTeam);
+app.post("/api/team", createTeam);
 app.delete("/api/team/:id");
 
 app.listen(SERVER_PORT, () => console.log(`Listen on ${SERVER_PORT}`));
