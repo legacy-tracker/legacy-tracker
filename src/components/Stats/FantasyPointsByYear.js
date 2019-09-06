@@ -36,7 +36,16 @@ export default function FantasyPointsByYear(props) {
         width={100}
         height={400}
         options={{
-          maintainAspectRatio: false
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true
+                }
+              }
+            ]
+          }
         }}
       />
     </div>
