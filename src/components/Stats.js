@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../styles/stats.css";
 import StatsInput from "../components/Stats/StatsInput";
+import FantasyPointsByYear from "./Stats/FantasyPointsByYear";
 
 export class Stats extends Component {
   constructor() {
@@ -112,6 +113,12 @@ export class Stats extends Component {
         <h1>
           {this.state.name} [{this.state.teamAbbr}]
         </h1>
+        <FantasyPointsByYear
+          stat2019={this.state.season0Pts}
+          stat2018={this.state.season1Pts}
+          stat2017={this.state.season2Pts}
+          stat2016={this.state.season3Pts}
+        />
         <div className="season-stats">
           <div>
             <h3>2019(Projections): {this.state.season0Pts} points</h3>
