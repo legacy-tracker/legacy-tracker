@@ -71,6 +71,10 @@ nav {
   border-radius: 5px;
   font-size: 1em;
   letter-spacing: 0.1em;
+  cursor: pointer;
+}
+.landing-btn:hover {
+  border: 1px solid black;
 }
 
 .btn-words {
