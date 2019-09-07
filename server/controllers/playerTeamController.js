@@ -8,10 +8,10 @@ const getUserTeams = (req, res) => {
 const createTeam = (req, res) => {
   const { name, username } = req.body;
   const db = req.app.get("db");
-  db.create_team([name, username])
+  const team = db
+    .create_team([name, username])
     .then(() => {
-      console.log(req.body);
-      res.sendStatus(200);
+      res.sendStatus(200).json(team);
     })
     .catch(err => console.log(err));
 };
