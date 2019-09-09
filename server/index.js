@@ -49,7 +49,7 @@ app.get("/api/user", function(req, res) {
 
 // user teams
 
-app.get("/api/team", getUserTeams);
+app.get("/api/team/:id", getUserTeams);
 app.post("/api/team", createTeam);
 app.delete("/api/team/:id");
 

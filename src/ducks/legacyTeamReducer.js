@@ -87,7 +87,7 @@ export default function reducer(state = initState, action) {
     case ADD_TE:
       return { ...state, te: [...state.te, ", ", payload] };
     case ADD_K:
-      return { ...state, qb: [...state.k, ", ", payload] };
+      return { ...state, k: [...state.k, ", ", payload] };
     default:
       return state;
   }
