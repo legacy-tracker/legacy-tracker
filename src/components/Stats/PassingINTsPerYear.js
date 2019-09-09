@@ -1,12 +1,12 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
-export default function RushingTDsPerYear(props) {
+export default function PassingINTsPerYear(props) {
   const data = {
     labels: ["2016", "2017", "2018", "2019 (projected)"],
     datasets: [
       {
-        label: "Rushing TDs per year",
+        label: "Passing INTs Per Year",
         fill: true,
         lineTension: 0.1,
         backgroundColor: "rgba(75,192,192,0.4)",
@@ -31,7 +31,7 @@ export default function RushingTDsPerYear(props) {
 
   return (
     <div>
-      <Bar
+      <Line
         data={data}
         width={100}
         height={400}

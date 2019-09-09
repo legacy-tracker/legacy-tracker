@@ -5,6 +5,12 @@ import StatsInput from "../components/Stats/StatsInput";
 import FantasyPointsByYear from "./Stats/FantasyPointsByYear";
 import RushingTDsPerYear from "./Stats/RushingTDsPerYear";
 import RushingYardsPerYear from "./Stats/RushingYardsPerYear";
+import PassingYardsPerYear from "./Stats/PassingYardsPerYear";
+import PassingTDsPerYear from "./Stats/PassingTDsPerYear";
+import PassingINTsPerYear from "./Stats/PassingINTsPerYear";
+import ReceptionsPerYear from "./Stats/ReceptionsPerYear";
+import ReceptionTDsPerYear from "./Stats/ReceptionTDsPerYear";
+import ReceptionYardsPerYear from "./Stats/ReceptionYardsPerYear";
 
 export class Stats extends Component {
   constructor() {
@@ -105,7 +111,8 @@ export class Stats extends Component {
 
   handleRender() {
     if (this.state.position === "QB") {
-      const { s0Pts, s1Pts, s2Pts, s3Pts } = this.state;
+      const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
+
       return (
         <div>
           <FantasyPointsByYear
@@ -114,11 +121,35 @@ export class Stats extends Component {
             stat2017={s2Pts}
             stat2016={s3Pts}
           />
-          <FantasyPointsByYear
-            stat2019={s0Pts}
-            stat2018={s1Pts}
-            stat2017={s2Pts}
-            stat2016={s3Pts}
+          <PassingYardsPerYear
+            stat2019={s0[5]}
+            stat2018={s1[5]}
+            stat2017={s2[5]}
+            stat2016={s3[5]}
+          />
+          <PassingTDsPerYear
+            stat2019={s0[6]}
+            stat2018={s1[6]}
+            stat2017={s2[6]}
+            stat2016={s3[6]}
+          />
+          <PassingINTsPerYear
+            stat2019={s0[7]}
+            stat2018={s1[7]}
+            stat2017={s2[7]}
+            stat2016={s3[7]}
+          />
+          <RushingTDsPerYear
+            stat2019={s0[15]}
+            stat2018={s1[15]}
+            stat2017={s2[15]}
+            stat2016={s3[15]}
+          />
+          <RushingYardsPerYear
+            stat2019={s0[14]}
+            stat2018={s1[14]}
+            stat2017={s2[14]}
+            stat2016={s3[14]}
           />
         </div>
       );
@@ -145,10 +176,28 @@ export class Stats extends Component {
             stat2017={s2[14]}
             stat2016={s3[14]}
           />
+          <ReceptionsPerYear
+            stat2019={s0[20]}
+            stat2018={s1[20]}
+            stat2017={s2[20]}
+            stat2016={s3[20]}
+          />
+          <ReceptionTDsPerYear
+            stat2019={s0[22]}
+            stat2018={s1[22]}
+            stat2017={s2[22]}
+            stat2016={s3[22]}
+          />
+          <ReceptionYardsPerYear
+            stat2019={s0[21]}
+            stat2018={s1[21]}
+            stat2017={s2[21]}
+            stat2016={s3[21]}
+          />
         </div>
       );
     } else if (this.state.position === "WR") {
-      const { s0Pts, s1Pts, s2Pts, s3Pts } = this.state;
+      const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
         <div>
@@ -158,10 +207,28 @@ export class Stats extends Component {
             stat2017={s2Pts}
             stat2016={s3Pts}
           />
+          <ReceptionsPerYear
+            stat2019={s0[20]}
+            stat2018={s1[20]}
+            stat2017={s2[20]}
+            stat2016={s3[20]}
+          />
+          <ReceptionTDsPerYear
+            stat2019={s0[22]}
+            stat2018={s1[22]}
+            stat2017={s2[22]}
+            stat2016={s3[22]}
+          />
+          <ReceptionYardsPerYear
+            stat2019={s0[21]}
+            stat2018={s1[21]}
+            stat2017={s2[21]}
+            stat2016={s3[21]}
+          />
         </div>
       );
     } else if (this.state.position === "TE") {
-      const { s0Pts, s1Pts, s2Pts, s3Pts } = this.state;
+      const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
         <div>
@@ -170,6 +237,24 @@ export class Stats extends Component {
             stat2018={s1Pts}
             stat2017={s2Pts}
             stat2016={s3Pts}
+          />
+          <ReceptionsPerYear
+            stat2019={s0[20]}
+            stat2018={s1[20]}
+            stat2017={s2[20]}
+            stat2016={s3[20]}
+          />
+          <ReceptionTDsPerYear
+            stat2019={s0[22]}
+            stat2018={s1[22]}
+            stat2017={s2[22]}
+            stat2016={s3[22]}
+          />
+          <ReceptionYardsPerYear
+            stat2019={s0[21]}
+            stat2018={s1[21]}
+            stat2017={s2[21]}
+            stat2016={s3[21]}
           />
         </div>
       );
