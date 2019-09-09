@@ -1,4 +1,3 @@
 SELECT legacy_team.* from legacy_team
-INNER JOIN legacy_user on legacy_team.user_id = legacy_user.user_id
-WHERE legacy_user.user_id = $1
-
+INNER JOIN legacy_user ON legacy_team.username = legacy_user.username
+WHERE legacy_user.username = $1

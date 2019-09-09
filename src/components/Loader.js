@@ -3,7 +3,7 @@ import LoaderIcon from "./LoaderIcon";
 
 const Loader = props => {
   return (
-    <div className="Loader">
+    <div className="Loader news">
       <LoaderIcon />
     </div>
   );

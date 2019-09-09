@@ -33,6 +33,7 @@ class MakeTeam extends React.Component {
               .then(response => {
                 console.log("then");
                 this.setState({ data: response.data.team });
+                console.log(this.props.username);
               })
 
               .catch(err => console.log(err));

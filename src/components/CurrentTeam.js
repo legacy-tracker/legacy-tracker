@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import "../styles/logos.css";
 
 class CurrentTeam extends React.Component {
   // constructor(){
@@ -12,7 +13,7 @@ class CurrentTeam extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div>
+      <div className="current-team">
         <h1>{this.props.year}</h1>
         <h1>{this.props.name}</h1>
         <h1>QB</h1> <li>{this.props.qb}</li>
