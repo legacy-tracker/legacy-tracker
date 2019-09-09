@@ -119,7 +119,7 @@ export class Stats extends Component {
       const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
-        <div>
+        <div className="chart-container">
           <FantasyPointsByYear
             stat2019={s0Pts}
             stat2018={s1Pts}
@@ -162,7 +162,7 @@ export class Stats extends Component {
       const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
-        <div>
+        <div className="chart-container">
           <FantasyPointsByYear
             stat2019={s0Pts}
             stat2018={s1Pts}
@@ -205,7 +205,7 @@ export class Stats extends Component {
       const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
-        <div>
+        <div className="chart-container">
           <FantasyPointsByYear
             stat2019={s0Pts}
             stat2018={s1Pts}
@@ -236,7 +236,7 @@ export class Stats extends Component {
       const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
-        <div>
+        <div className="chart-container">
           <FantasyPointsByYear
             stat2019={s0Pts}
             stat2018={s1Pts}
@@ -267,7 +267,7 @@ export class Stats extends Component {
       const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
-        <div>
+        <div className="chart-container">
           <FantasyPointsByYear
             stat2019={s0Pts}
             stat2018={s1Pts}

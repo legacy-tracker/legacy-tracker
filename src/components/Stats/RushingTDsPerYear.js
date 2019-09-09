@@ -30,7 +30,7 @@ export default function RushingTDsPerYear(props) {
   };
 
   return (
-    <div>
+    <div className="charts-container">
       <Bar
         data={data}
         width={100}
