@@ -3,7 +3,9 @@ import axios from "axios";
 import "../styles/stats.css";
 import StatsInput from "../components/Stats/StatsInput";
 import FantasyPointsByYear from "./Stats/FantasyPointsByYear";
-import RushingYardsPerYear from "./Stats/RB";
+import RushingTDsPerYear from "./Stats/RushingTDsPerYear";
+import RushingYardsPerYear from "./Stats/RushingYardsPerYear";
+
 export class Stats extends Component {
   constructor() {
     super();
@@ -104,7 +106,6 @@ export class Stats extends Component {
   handleRender() {
     if (this.state.position === "QB") {
       const { s0Pts, s1Pts, s2Pts, s3Pts } = this.state;
-
       return (
         <div>
           <FantasyPointsByYear
@@ -122,7 +123,7 @@ export class Stats extends Component {
         </div>
       );
     } else if (this.state.position === "RB") {
-      const { s0Pts, s1Pts, s2Pts, s3Pts } = this.state;
+      const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
         <div>
@@ -131,6 +132,18 @@ export class Stats extends Component {
             stat2018={s1Pts}
             stat2017={s2Pts}
             stat2016={s3Pts}
+          />
+          <RushingTDsPerYear
+            stat2019={s0[15]}
+            stat2018={s1[15]}
+            stat2017={s2[15]}
+            stat2016={s3[15]}
+          />
+          <RushingYardsPerYear
+            stat2019={s0[14]}
+            stat2018={s1[14]}
+            stat2017={s2[14]}
+            stat2016={s3[14]}
           />
         </div>
       );
@@ -176,7 +189,7 @@ export class Stats extends Component {
   }
 
   render() {
-    const { s0, s1, s2, s3, s0Pts, s1Pts, s2Pts, s3Pts } = this.state;
+    const { s1, s2, s3, s0 } = this.state;
     return (
       <div>
         {this.handleRender()}
@@ -190,7 +203,7 @@ export class Stats extends Component {
         </h1>
         <div className="season-stats">
           <div>
-            <h3>2019(Projections): {s0Pts} points</h3>
+            <h3>2019(Projections): {this.state.s0Pts} points</h3>
             <h5>Games Played: {s0[1]}</h5>
             <h5>Passing Attempts: {s0[2]}</h5>
             <h5>Completions: {s0[3]}</h5>
@@ -215,7 +228,7 @@ export class Stats extends Component {
           </div>
 
           <div>
-            <h3>2018: {s1Pts} points</h3>
+            <h3>2018: {this.state.s1Pts} points</h3>
             <h5>Games Played: {s1[1]}</h5>
             <h5>Passing Attempts: {s1[2]}</h5>
             <h5>Completions: {s1[3]}</h5>
@@ -239,7 +252,7 @@ export class Stats extends Component {
             <h5>Receiving TD's: {s1[22]}</h5>
           </div>
           <div>
-            <h3>2017: {s2Pts} points</h3>
+            <h3>2017: {this.state.s2Pts} points</h3>
             <h5>Games Played: {s2[1]}</h5>
             <h5>Passing Attempts: {s2[2]}</h5>
             <h5>Completions: {s2[3]}</h5>
@@ -263,7 +276,7 @@ export class Stats extends Component {
             <h5>Receiving TD's: {s2[22]}</h5>
           </div>
           <div>
-            <h3>2016: {s3Pts} points</h3>
+            <h3>2016: {this.state.s3Pts} points</h3>
             <h5>Games Played: {s3[1]}</h5>
             <h5>Passing Attempts: {s3[2]}</h5>
             <h5>Completions: {s3[3]}</h5>
