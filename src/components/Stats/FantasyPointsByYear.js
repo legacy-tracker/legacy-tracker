@@ -1,5 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+import "./statsStyles.css";
 
 export default function FantasyPointsByYear(props) {
   const data = {
@@ -30,7 +31,7 @@ export default function FantasyPointsByYear(props) {
   };
 
   return (
-    <div>
+    <div className="charts-container">
       <Line
         data={data}
         width={100}
