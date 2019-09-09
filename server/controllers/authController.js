@@ -42,7 +42,6 @@ module.exports = {
   },
   logout: async function(req, res) {
     req.session.destroy();
-    res.redirect("http://localhost:6969");
     return res.sendStatus(400);
   }
 };

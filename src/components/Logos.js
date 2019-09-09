@@ -121,6 +121,9 @@ class Logos extends React.Component {
     });
   };
   render() {
+    if (!this.state.data) {
+      return <Loader />;
+    }
     console.log(this.props.year);
     console.log(this.state.data);
 
@@ -322,11 +325,13 @@ class Logos extends React.Component {
                 </div>
               </div>
             </div>
+
             <img
               src="https://static.nfl.com/static/content/public/static/wildcat/assets/img/application-shell/shield/default.svg"
               alt="logg"
               onClick={() => this.filterForTeam("")}
             />
+
             <h1>QBs</h1>
             {this.state.qb.map(qb => (
               <>

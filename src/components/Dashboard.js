@@ -8,21 +8,18 @@ import "../styles/dashboard.css";
 import News from "./News";
 import Logos from "./Logos";
 import Carousel from "./SlideShow/Carousel";
+import { logout } from "../ducks/authReducer";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 class Dashboard extends React.Component {
-  // logout() {
-  //   axios
-  //     .get("/auth/logout")
-  //     .then(() => {
-  //       this.props.updateUser({});
-  //       window.location.reload();
-  //     })
-  //     .catch(err => console.log(err));
-  // }
-  // handleLogout = () => {
-  //   this.props.logout();
-  // };
+  handleLogout = e => {
+    this.props.logout();
+  };
   render() {
+    if (this.props.redirect === false) {
+      return <Redirect to="/" />;
+    }
     return (
       <div>
         <div className="dashboard">
@@ -30,7 +27,9 @@ class Dashboard extends React.Component {
             <span className="nav-triangle"></span>
             <nav>Fantasy Football Legacy</nav>
             <h1 className="user-welcome">Welcome user!</h1>
-            <button className="logout-btn">Logout</button>
+            <button onClick={this.handleLogout} className="logout-btn">
+              Logout
+            </button>
           </div>
           <LegacyTeamList />
           <div className="dashboard-main">
@@ -45,4 +44,13 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard;
+let mapStatetoProps = reduxState => {
+  return {
+    redirect: reduxState.auth.redirect
+  };
+};
+
+export default connect(
+  mapStatetoProps,
+  { logout }
+)(Dashboard);

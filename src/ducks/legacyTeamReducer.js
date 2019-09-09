@@ -79,7 +79,7 @@ export default function reducer(state = initState, action) {
     case ADD_TEAM:
       return { ...state, team: payload };
     case ADD_Qb:
-      return { ...state, qb: [...state.qb, ", ", payload] };
+      return { ...state, qb: [...state.qb, payload, " , "] };
     case ADD_RB:
       return { ...state, rb: [...state.rb, ", ", payload] };
     case ADD_WR:
