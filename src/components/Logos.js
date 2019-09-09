@@ -1,11 +1,10 @@
 import React from "react";
 import "../styles/logos.css";
 import "../styles/dashboard.css";
-import LegacyTeamList from "./LegacyTeamList";
 import CurrentTeam from "../components/CurrentTeam";
 import axios from "axios";
-import Loader from "./Loader";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { addQb, addRb, addWr, addTe, addK } from "../ducks/legacyTeamReducer";
 
 class Logos extends React.Component {
@@ -19,14 +18,15 @@ class Logos extends React.Component {
       rb: [],
       wr: [],
       te: [],
-      k: []
+      k: [],
+      counter: 0
     };
   }
 
-  handleAddQb = e => {
+  handleAddQb = (e, qb) => {
     this.props.addQb(e.target.value);
 
-    const { id, name, teamAbbr, position } = this.state.qb[1];
+    const { id, name, teamAbbr, position } = qb;
     const teamId = this.props.team.team_id;
     axios.post("/api/userPlayers", {
       id,
@@ -35,11 +35,12 @@ class Logos extends React.Component {
       position,
       teamId
     });
+    this.setState({ counter: (this.state.counter += 1) });
   };
-  handleAddRb = e => {
+  handleAddRb = (e, rb) => {
     this.props.addRb(e.target.value);
 
-    const { id, name, teamAbbr, position } = this.state.rb[1];
+    const { id, name, teamAbbr, position } = rb;
     const teamId = this.props.team.team_id;
     axios.post("/api/userPlayers", {
       id,
@@ -48,11 +49,12 @@ class Logos extends React.Component {
       position,
       teamId
     });
+    this.setState({ counter: (this.state.counter += 1) });
   };
-  handleAddWr = e => {
+  handleAddWr = (e, wr) => {
     this.props.addWr(e.target.value);
 
-    const { id, name, teamAbbr, position } = this.state.wr[1];
+    const { id, name, teamAbbr, position } = wr;
     const teamId = this.props.team.team_id;
     axios.post("/api/userPlayers", {
       id,
@@ -61,11 +63,12 @@ class Logos extends React.Component {
       position,
       teamId
     });
+    this.setState({ counter: (this.state.counter += 1) });
   };
-  handleAddTe = e => {
+  handleAddTe = (e, te) => {
     this.props.addTe(e.target.value);
 
-    const { id, name, teamAbbr, position } = this.state.te[1];
+    const { id, name, teamAbbr, position } = te;
     const teamId = this.props.team.team_id;
     axios.post("/api/userPlayers", {
       id,
@@ -74,11 +77,12 @@ class Logos extends React.Component {
       position,
       teamId
     });
+    this.setState({ counter: (this.state.counter += 1) });
   };
-  handleAddK = e => {
+  handleAddK = (e, k) => {
     this.props.addK(e.target.value);
 
-    const { id, name, teamAbbr, position } = this.state.k[1];
+    const { id, name, teamAbbr, position } = k;
     const teamId = this.props.team.team_id;
     axios.post("/api/userPlayers", {
       id,
@@ -87,6 +91,7 @@ class Logos extends React.Component {
       position,
       teamId
     });
+    this.setState({ counter: (this.state.counter += 1) });
   };
 
   componentDidMount() {
@@ -167,12 +172,14 @@ class Logos extends React.Component {
   };
   render() {
     console.log(this.props);
-    console.log(this.state.data);
+    console.log(this.state);
+    if (this.state.counter > 11) {
+      return <Redirect to="/dashboard" />;
+    }
 
     return (
       <>
         <div className="dashboard">
-          {/* <LegacyTeamList /> */}
           <div className="logo-rapper">
             <h1 className="select">Select A Team</h1>
             <div className="nfl-container">
@@ -385,7 +392,7 @@ class Logos extends React.Component {
             {this.state.rb.map(rb => (
               <>
                 <li>{rb.name}</li>
-                <button onClick={this.handleAddRb} name="rb">
+                <button onClick={e => this.handleAddRb(e, rb)} name="rb">
                   Add
                 </button>
               </>
@@ -394,7 +401,7 @@ class Logos extends React.Component {
             {this.state.wr.map(wr => (
               <>
                 <li>{wr.name}</li>
-                <button onClick={this.handleAddWr} name="wr">
+                <button onClick={e => this.handleAddWr(e, wr)} name="wr">
                   Add
                 </button>
               </>
@@ -403,7 +410,7 @@ class Logos extends React.Component {
             {this.state.te.map(te => (
               <>
                 <li>{te.name}</li>
-                <button onClick={this.handleAddTe} name="te">
+                <button onClick={e => this.handleAddTe(e, te)} name="te">
                   Add
                 </button>
               </>
@@ -412,7 +419,7 @@ class Logos extends React.Component {
             {this.state.k.map(k => (
               <>
                 <li>{k.name}</li>
-                <button onClick={this.handleAddK} name="k">
+                <button onClick={e => this.handleAddK(e, k)} name="k">
                   Add
                 </button>
               </>
