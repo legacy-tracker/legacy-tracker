@@ -11,6 +11,11 @@ import PassingINTsPerYear from "./Stats/PassingINTsPerYear";
 import ReceptionsPerYear from "./Stats/ReceptionsPerYear";
 import ReceptionTDsPerYear from "./Stats/ReceptionTDsPerYear";
 import ReceptionYardsPerYear from "./Stats/ReceptionYardsPerYear";
+import PATsMadePerYear from "./Stats/PATsMadePerYear";
+import FGsMade20 from "./Stats/FGsMade20-29";
+import FGsMade30 from "./Stats/FGsMade30-39";
+import FGsMade40 from "./Stats/FGsMade40-49";
+import FGsMade50 from "./Stats/FGsMade50+";
 
 export class Stats extends Component {
   constructor() {
@@ -259,7 +264,7 @@ export class Stats extends Component {
         </div>
       );
     } else if (this.state.position === "K") {
-      const { s0Pts, s1Pts, s2Pts, s3Pts } = this.state;
+      const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
         <div>
@@ -268,6 +273,36 @@ export class Stats extends Component {
             stat2018={s1Pts}
             stat2017={s2Pts}
             stat2016={s3Pts}
+          />
+          <PATsMadePerYear
+            stat2019={s0[33]}
+            stat2018={s1[33]}
+            stat2017={s2[33]}
+            stat2016={s3[33]}
+          />
+          <FGsMade20
+            stat2019={s0[36]}
+            stat2018={s1[36]}
+            stat2017={s2[36]}
+            stat2016={s3[36]}
+          />
+          <FGsMade30
+            stat2019={s0[37]}
+            stat2018={s1[37]}
+            stat2017={s2[37]}
+            stat2016={s3[37]}
+          />
+          <FGsMade40
+            stat2019={s0[38]}
+            stat2018={s1[38]}
+            stat2017={s2[38]}
+            stat2016={s3[38]}
+          />
+          <FGsMade50
+            stat2019={s0[39]}
+            stat2018={s1[39]}
+            stat2017={s2[39]}
+            stat2016={s3[39]}
           />
         </div>
       );
