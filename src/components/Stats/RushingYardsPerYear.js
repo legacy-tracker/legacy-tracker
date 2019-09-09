@@ -30,7 +30,7 @@ export default function RushingYardsPerYear(props) {
   };
 
   return (
-    <div>
+    <div className="charts-container">
       <Line
         data={data}
         width={100}
