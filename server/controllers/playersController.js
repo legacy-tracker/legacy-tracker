@@ -1,13 +1,7 @@
 const addPlayer = (req, res) => {
-  const { playerId, playerName, playerTeam, playerPosition, teamId } = req.body;
+  const { id, name, teamAbbr, position, teamId } = req.body;
   const db = req.app.get("db");
-  db.add_player([
-    playerId,
-    playerName,
-    playerTeam,
-    playerPosition,
-    teamId
-  ]).then(() => {
+  db.add_player([id, name, teamAbbr, position, teamId]).then(() => {
     res.sendStatus(200);
   });
 };

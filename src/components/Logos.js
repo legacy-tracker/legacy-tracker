@@ -23,25 +23,70 @@ class Logos extends React.Component {
     };
   }
 
-  handleAddQb = (e, qb) => {
+  handleAddQb = e => {
     this.props.addQb(e.target.value);
-    // console.log(qb)
-    // const {id, name, teamAbbr, position} = qb;
-    // axios.post('/api/userPlayers', {
-    //   id, name, height, position,
-    // })
+
+    const { id, name, teamAbbr, position } = this.state.qb[1];
+    const teamId = this.props.team.team_id;
+    axios.post("/api/userPlayers", {
+      id,
+      name,
+      teamAbbr,
+      position,
+      teamId
+    });
   };
   handleAddRb = e => {
     this.props.addRb(e.target.value);
+
+    const { id, name, teamAbbr, position } = this.state.rb[1];
+    const teamId = this.props.team.team_id;
+    axios.post("/api/userPlayers", {
+      id,
+      name,
+      teamAbbr,
+      position,
+      teamId
+    });
   };
   handleAddWr = e => {
     this.props.addWr(e.target.value);
+
+    const { id, name, teamAbbr, position } = this.state.wr[1];
+    const teamId = this.props.team.team_id;
+    axios.post("/api/userPlayers", {
+      id,
+      name,
+      teamAbbr,
+      position,
+      teamId
+    });
   };
   handleAddTe = e => {
     this.props.addTe(e.target.value);
+
+    const { id, name, teamAbbr, position } = this.state.te[1];
+    const teamId = this.props.team.team_id;
+    axios.post("/api/userPlayers", {
+      id,
+      name,
+      teamAbbr,
+      position,
+      teamId
+    });
   };
   handleAddK = e => {
     this.props.addK(e.target.value);
+
+    const { id, name, teamAbbr, position } = this.state.k[1];
+    const teamId = this.props.team.team_id;
+    axios.post("/api/userPlayers", {
+      id,
+      name,
+      teamAbbr,
+      position,
+      teamId
+    });
   };
 
   componentDidMount() {
@@ -121,7 +166,7 @@ class Logos extends React.Component {
     });
   };
   render() {
-    console.log(this.props.year);
+    console.log(this.props);
     console.log(this.state.data);
 
     return (
@@ -331,11 +376,7 @@ class Logos extends React.Component {
             {this.state.qb.map(qb => (
               <>
                 <li>{qb.name}</li>
-                <button
-                  onClick={e => this.handleAddQb(e, qb)}
-                  name="qb"
-                  value={qb.name}
-                >
+                <button onClick={e => this.handleAddQb(e, qb)} name="qb">
                   Add
                 </button>
               </>
@@ -344,7 +385,7 @@ class Logos extends React.Component {
             {this.state.rb.map(rb => (
               <>
                 <li>{rb.name}</li>
-                <button onClick={this.handleAddRb} name="rb" value={rb.name}>
+                <button onClick={this.handleAddRb} name="rb">
                   Add
                 </button>
               </>
@@ -353,7 +394,7 @@ class Logos extends React.Component {
             {this.state.wr.map(wr => (
               <>
                 <li>{wr.name}</li>
-                <button onClick={this.handleAddWr} name="wr" value={wr.name}>
+                <button onClick={this.handleAddWr} name="wr">
                   Add
                 </button>
               </>
@@ -362,7 +403,7 @@ class Logos extends React.Component {
             {this.state.te.map(te => (
               <>
                 <li>{te.name}</li>
-                <button onClick={this.handleAddTe} name="te" value={te.name}>
+                <button onClick={this.handleAddTe} name="te">
                   Add
                 </button>
               </>
@@ -371,7 +412,7 @@ class Logos extends React.Component {
             {this.state.k.map(k => (
               <>
                 <li>{k.name}</li>
-                <button onClick={this.handleAddK} name="k" value={k.name}>
+                <button onClick={this.handleAddK} name="k">
                   Add
                 </button>
               </>
@@ -386,7 +427,8 @@ class Logos extends React.Component {
 
 let mapStatetoProps = reduxState => {
   return {
-    year: reduxState.legacy.year
+    year: reduxState.legacy.year,
+    team: reduxState.legacy.team
   };
 };
 export default connect(
