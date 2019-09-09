@@ -1,11 +1,10 @@
 import React from "react";
 import "../styles/logos.css";
 import "../styles/dashboard.css";
-import LegacyTeamList from "./LegacyTeamList";
 import CurrentTeam from "../components/CurrentTeam";
 import axios from "axios";
-import Loader from "./Loader";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { addQb, addRb, addWr, addTe, addK } from "../ducks/legacyTeamReducer";
 
 class Logos extends React.Component {
@@ -19,29 +18,30 @@ class Logos extends React.Component {
       rb: [],
       wr: [],
       te: [],
-      k: []
+      k: [],
+      counter: 0
     };
   }
 
-  handleAddQb = (e, qb) => {
+  handleAddQb = e => {
     this.props.addQb(e.target.value);
-    // console.log(qb)
-    // const {id, name, teamAbbr, position} = qb;
-    // axios.post('/api/userPlayers', {
-    //   id, name, height, position,
-    // })
+    this.setState({ counter: (this.state.counter += 1) });
   };
   handleAddRb = e => {
     this.props.addRb(e.target.value);
+    this.setState({ counter: (this.state.counter += 1) });
   };
   handleAddWr = e => {
     this.props.addWr(e.target.value);
+    this.setState({ counter: (this.state.counter += 1) });
   };
   handleAddTe = e => {
     this.props.addTe(e.target.value);
+    this.setState({ counter: (this.state.counter += 1) });
   };
   handleAddK = e => {
     this.props.addK(e.target.value);
+    this.setState({ counter: (this.state.counter += 1) });
   };
 
   componentDidMount() {
@@ -121,13 +121,13 @@ class Logos extends React.Component {
     });
   };
   render() {
-    console.log(this.props.year);
-    console.log(this.state.data);
+    if (this.state.counter > 11) {
+      return <Redirect to="/dashboard" />;
+    }
 
     return (
       <>
         <div className="dashboard">
-          {/* <LegacyTeamList /> */}
           <div className="logo-rapper">
             <h1 className="select">Select A Team</h1>
             <div className="nfl-container">
@@ -332,7 +332,9 @@ class Logos extends React.Component {
               <>
                 <li>{qb.name}</li>
                 <button
-                  onClick={e => this.handleAddQb(e, qb)}
+                  onClick={e => {
+                    this.handleAddQb(e);
+                  }}
                   name="qb"
                   value={qb.name}
                 >

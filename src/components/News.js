@@ -100,22 +100,20 @@ class News extends React.Component {
       };
 
       return (
-        <div>
-          <div key={newsArticle.id} className="news-text">
-            <div className="news-item-top-row">
-              {conditionalLogo()}
-              <h3 className="news-item-headline">
-                {"["}
-                {newsArticle.position}
-                {"]"} {newsArticle.firstName} {newsArticle.lastName}{" "}
-                {filteredHeadline}
-              </h3>
-            </div>
-            <NewsFormatTime time={newsArticle.timestamp} />
-            <p>{filteredBody}</p>
-            <h4 className="impact">Impact:</h4>
-            <p>{filteredAnalysis}</p>
+        <div key={newsArticle.id} className="news-text">
+          <div className="news-item-top-row">
+            {conditionalLogo()}
+            <h3 className="news-item-headline">
+              {"["}
+              {newsArticle.position}
+              {"]"} {newsArticle.firstName} {newsArticle.lastName}{" "}
+              {filteredHeadline}
+            </h3>
           </div>
+          <NewsFormatTime time={newsArticle.timestamp} />
+          <p>{filteredBody}</p>
+          <h4 className="impact">Impact:</h4>
+          <p>{filteredAnalysis}</p>
         </div>
       );
     });
