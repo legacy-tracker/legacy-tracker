@@ -36,10 +36,8 @@
 }
 .my-teams {
   margin-top: 4em;
-  height: 100vh;
+  height: 80vh;
   width: 20vw;
-  overflow: scroll
-
 }
 
 .side-menu {
