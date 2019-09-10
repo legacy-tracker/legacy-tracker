@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const initState = {
   year: 2019,
   name: "",
@@ -61,25 +63,33 @@ export function changeName(value) {
     payload: value
   };
 }
-export function addTeam(value) {
+export function addTeam(name) {
+  let data = axios
+    .post("/api/team", {
+      name
+    })
+    .then(res => {
+      return res.data[0];
+    });
+
   return {
     type: ADD_TEAM,
-    payload: value
+    payload: data
   };
 }
 
 export default function reducer(state = initState, action) {
   const { type, payload } = action;
-  console.log(payload);
+
   switch (type) {
     case CHANGE_YEAR:
       return { ...state, year: payload };
     case CHANGE_NAME:
       return { ...state, name: payload };
-    case ADD_TEAM:
+    case `${ADD_TEAM}_FULFILLED`:
       return { ...state, team: payload };
     case ADD_Qb:
-      return { ...state, qb: [...state.qb, ", ", payload] };
+      return { ...state, qb: [...state.qb, payload] };
     case ADD_RB:
       return { ...state, rb: [...state.rb, ", ", payload] };
     case ADD_WR:

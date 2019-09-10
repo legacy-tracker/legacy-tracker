@@ -1,19 +1,18 @@
 const getUserTeams = (req, res) => {
   const db = req.app.get("db");
-  db.get_userLegacyteam([req.params.id]).then(team => {
+  const { username } = req.session.user;
+  db.get_userLegacyteam([username]).then(team => {
     res.status(200).json(team);
   });
 };
 
-const createTeam = (req, res) => {
-  const { name, username } = req.body;
-  const db = req.app.get("db");
-  const team = db
-    .create_team([name, username])
-    .then(() => {
-      res.sendStatus(200).json(team);
-    })
-    .catch(err => console.log(err));
+const createTeam = async (req, res) => {
+  const { name } = req.body;
+  const { username } = req.session.user;
+
+  const team = await req.app.get("db").create_team([name, username]);
+
+  return res.status(200).json(team);
 };
 
 const deleteTeam = (req, res) => {

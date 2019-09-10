@@ -23,24 +23,74 @@ class Logos extends React.Component {
     };
   }
 
-  handleAddQb = e => {
+  handleAddQb = (e, qb) => {
     this.props.addQb(e.target.value);
+
+    const { id, name, teamAbbr, position } = qb;
+    const teamId = this.props.team.team_id;
+    axios.post("/api/userPlayers", {
+      id,
+      name,
+      teamAbbr,
+      position,
+      teamId
+    });
     this.setState({ counter: (this.state.counter += 1) });
   };
-  handleAddRb = e => {
+  handleAddRb = (e, rb) => {
     this.props.addRb(e.target.value);
+
+    const { id, name, teamAbbr, position } = rb;
+    const teamId = this.props.team.team_id;
+    axios.post("/api/userPlayers", {
+      id,
+      name,
+      teamAbbr,
+      position,
+      teamId
+    });
     this.setState({ counter: (this.state.counter += 1) });
   };
-  handleAddWr = e => {
+  handleAddWr = (e, wr) => {
     this.props.addWr(e.target.value);
+
+    const { id, name, teamAbbr, position } = wr;
+    const teamId = this.props.team.team_id;
+    axios.post("/api/userPlayers", {
+      id,
+      name,
+      teamAbbr,
+      position,
+      teamId
+    });
     this.setState({ counter: (this.state.counter += 1) });
   };
-  handleAddTe = e => {
+  handleAddTe = (e, te) => {
     this.props.addTe(e.target.value);
+
+    const { id, name, teamAbbr, position } = te;
+    const teamId = this.props.team.team_id;
+    axios.post("/api/userPlayers", {
+      id,
+      name,
+      teamAbbr,
+      position,
+      teamId
+    });
     this.setState({ counter: (this.state.counter += 1) });
   };
-  handleAddK = e => {
+  handleAddK = (e, k) => {
     this.props.addK(e.target.value);
+
+    const { id, name, teamAbbr, position } = k;
+    const teamId = this.props.team.team_id;
+    axios.post("/api/userPlayers", {
+      id,
+      name,
+      teamAbbr,
+      position,
+      teamId
+    });
     this.setState({ counter: (this.state.counter += 1) });
   };
 
@@ -121,6 +171,7 @@ class Logos extends React.Component {
     });
   };
   render() {
+ 
     if (this.state.counter > 11) {
       return <Redirect to="/dashboard" />;
     }
@@ -331,13 +382,7 @@ class Logos extends React.Component {
             {this.state.qb.map(qb => (
               <>
                 <li>{qb.name}</li>
-                <button
-                  onClick={e => {
-                    this.handleAddQb(e);
-                  }}
-                  name="qb"
-                  value={qb.name}
-                >
+                <button onClick={e => this.handleAddQb(e, qb)} name="qb">
                   Add
                 </button>
               </>
@@ -346,7 +391,7 @@ class Logos extends React.Component {
             {this.state.rb.map(rb => (
               <>
                 <li>{rb.name}</li>
-                <button onClick={this.handleAddRb} name="rb" value={rb.name}>
+                <button onClick={e => this.handleAddRb(e, rb)} name="rb">
                   Add
                 </button>
               </>
@@ -355,7 +400,7 @@ class Logos extends React.Component {
             {this.state.wr.map(wr => (
               <>
                 <li>{wr.name}</li>
-                <button onClick={this.handleAddWr} name="wr" value={wr.name}>
+                <button onClick={e => this.handleAddWr(e, wr)} name="wr">
                   Add
                 </button>
               </>
@@ -364,7 +409,7 @@ class Logos extends React.Component {
             {this.state.te.map(te => (
               <>
                 <li>{te.name}</li>
-                <button onClick={this.handleAddTe} name="te" value={te.name}>
+                <button onClick={e => this.handleAddTe(e, te)} name="te">
                   Add
                 </button>
               </>
@@ -373,7 +418,7 @@ class Logos extends React.Component {
             {this.state.k.map(k => (
               <>
                 <li>{k.name}</li>
-                <button onClick={this.handleAddK} name="k" value={k.name}>
+                <button onClick={e => this.handleAddK(e, k)} name="k">
                   Add
                 </button>
               </>
@@ -388,7 +433,8 @@ class Logos extends React.Component {
 
 let mapStatetoProps = reduxState => {
   return {
-    year: reduxState.legacy.year
+    year: reduxState.legacy.year,
+    team: reduxState.legacy.team
   };
 };
 export default connect(
