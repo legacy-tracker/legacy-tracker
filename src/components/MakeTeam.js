@@ -13,7 +13,6 @@ class MakeTeam extends React.Component {
     this.props.changeName(e.target.value);
   };
   render() {
-    
     return (
       <div className="modal-input-container">
         <input
@@ -22,15 +21,17 @@ class MakeTeam extends React.Component {
           placeholder="Team Name"
           required
         />
-        <button
-          onClick={() => {
-            this.props.addTeam(this.props.name);
-          }}
-          className="modal-submit"
-          type="submit"
-        >
-          <Link to="/logos">submit</Link>
-        </button>
+        <Link to="/logos">
+          <button
+            onClick={() => {
+              this.props.addTeam(this.props.name);
+            }}
+            className="modal-submit"
+            type="submit"
+          >
+            submit
+          </button>
+        </Link>
         <select onChange={this.handleYear}>
           <option value="2019">2019</option>
           <option value="2018">2018</option>
