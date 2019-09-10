@@ -1,16 +1,22 @@
  .body { 
+   display: flex;
     height: 100vh;
-    margin-top:150px;
-    // background-image:url('https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/176/2018/07/30181005/Sports.Football.Field_.jpg');
+    // margin-top:150px;
+    background-image:url('https://www.rowletteagles.org/wp-content/uploads/2017/11/football-field-opti.jpg');
     // z-index: -1;
-    
+    // border: solid red;
+    justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   }
   .box {
-    
+
+    display:flex;
     margin: 0 auto;
     width: 40px;
     height: 140px;
-    /* border: solid 1px black; */
+    //  border: solid 1px black;
     position: relative;
     
     .shadow {
@@ -31,12 +37,14 @@
     animation: bounce 1s cubic-bezier(0.68, 0.35, 0.29, 0.54) infinite;
   }
   .ball {
-
+    margin-top: 200px;
+    display: flex;
     width: 160px;
     height: 99px;
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2d/American_football_icon_simple_flat.svg');
     background-size: cover;
     animation: roll .6s linear infinite;
+    // border:solid red;
   }
   
   @keyframes roll {
