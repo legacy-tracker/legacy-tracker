@@ -34,6 +34,7 @@ massive(CONNECTION_STRING).then(db => {
 app.post("/auth/register", register);
 app.post("/auth/login", login);
 app.get("/auth/logout", logout);
+// app.get("/auth/logout", () => console.log("hit"));
 
 // app.use((req, res, next) => {
 //   if (req.session.user) return next();
