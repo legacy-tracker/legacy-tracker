@@ -21,6 +21,7 @@ const ADD_TE = "ADD_TE";
 const ADD_K = "ADD_K";
 
 export function addQb(value) {
+  console.log(value);
   return {
     type: ADD_Qb,
     payload: value
@@ -91,13 +92,13 @@ export default function reducer(state = initState, action) {
     case ADD_Qb:
       return { ...state, qb: [...state.qb, payload] };
     case ADD_RB:
-      return { ...state, rb: [...state.rb, ", ", payload] };
+      return { ...state, rb: [...state.rb, payload] };
     case ADD_WR:
-      return { ...state, wr: [...state.wr, ", ", payload] };
+      return { ...state, wr: [...state.wr, payload] };
     case ADD_TE:
-      return { ...state, te: [...state.te, ", ", payload] };
+      return { ...state, te: [...state.te, payload] };
     case ADD_K:
-      return { ...state, k: [...state.k, ", ", payload] };
+      return { ...state, k: [...state.k, payload] };
     default:
       return state;
   }
