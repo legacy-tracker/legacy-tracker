@@ -1,6 +1,7 @@
 const getUserTeams = (req, res) => {
   const db = req.app.get("db");
-  db.get_userLegacyteam([req.params.id]).then(team => {
+  const { username } = req.session.user;
+  db.get_userLegacyteam([username]).then(team => {
     res.status(200).json(team);
   });
 };

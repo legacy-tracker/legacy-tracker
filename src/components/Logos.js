@@ -171,8 +171,7 @@ class Logos extends React.Component {
     });
   };
   render() {
-    console.log(this.props);
-    console.log(this.state);
+ 
     if (this.state.counter > 11) {
       return <Redirect to="/dashboard" />;
     }
