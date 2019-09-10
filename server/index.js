@@ -9,7 +9,7 @@ const {
   createTeam,
   deleteTeam
 } = require("./controllers/playerTeamController");
-const { addPlayer } = require("./controllers/playersController");
+const { addPlayer, getPlayers } = require("./controllers/playersController");
 const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET } = process.env;
 
 const app = express();
@@ -49,11 +49,12 @@ app.get("/api/user", function(req, res) {
 
 // user teams
 
-app.get("/api/team/:id", getUserTeams);
+app.get("/api/team/", getUserTeams);
 app.post("/api/team", createTeam);
 app.delete("/api/team/:id");
 
 //user players
 app.post("/api/userPlayers", addPlayer);
+app.get("/api/userPlayers/:id", getPlayers);
 
 app.listen(SERVER_PORT, () => console.log(`Listen on ${SERVER_PORT}`));

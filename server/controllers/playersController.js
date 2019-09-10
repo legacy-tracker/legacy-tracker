@@ -6,6 +6,14 @@ const addPlayer = (req, res) => {
   });
 };
 
+const getPlayers = async (req, res) => {
+  const { id } = req.params;
+
+  let data = await req.app.get("db").get_legacyTeamPlayers(id);
+  return res.status(200).json(data);
+};
+
 module.exports = {
-  addPlayer
+  addPlayer,
+  getPlayers
 };
