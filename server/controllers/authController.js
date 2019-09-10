@@ -42,6 +42,5 @@ module.exports = {
   },
   logout: function(req, res) {
     req.session.destroy();
-    return res.sendStatus(400);
   }
 };

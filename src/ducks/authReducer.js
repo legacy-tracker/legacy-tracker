@@ -56,7 +56,7 @@ export default function(state = initialState, action) {
     case `${REGISTER}_FULFILLED`:
       return { ...state, username: payload.data.username, redirect: true };
     case `${LOGOUT}_FULFILLED`:
-      return initialState;
+      return { ...state, username: "", redirect: false };
     case `${UPDATE_USERNAME}_FULFILLED`:
       return { ...state, username: payload.data };
     default:

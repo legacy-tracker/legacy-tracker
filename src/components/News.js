@@ -3,7 +3,7 @@ import axios from "axios";
 import "../styles/news.css";
 import NewsTeamList from "./News/NewsTeamList.";
 import NewsFormatTime from "./News/NewsFormatTime";
-import Loader from "./Loader";
+import LoaderNews from "./LoaderNews";
 
 class News extends React.Component {
   constructor() {
@@ -64,7 +64,7 @@ class News extends React.Component {
 
   render() {
     if (!this.state.news) {
-      return <Loader />;
+      return <LoaderNews />;
     }
     const displayNews = this.state.news.map((newsArticle, index) => {
       //These replaces are used to properly load apostrophes, quotes, and the & symbol
