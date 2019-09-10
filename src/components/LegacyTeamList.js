@@ -22,7 +22,6 @@ class LegacyTeamList extends React.Component {
   }
   handleRoster = team => {
     const { team_id } = team;
-    // console.log(team_id);
     this.props.getPlayers(team_id);
   };
 

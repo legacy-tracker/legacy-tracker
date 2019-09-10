@@ -6,12 +6,13 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { addQb, addRb, addWr, addTe, addK } from "../ducks/legacyTeamReducer";
+import Loader from "./Loader";
 
 class Logos extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: [],
+      // data: [],
       currentTeam: "",
       teamPlayers: [],
       qb: [],
@@ -24,7 +25,7 @@ class Logos extends React.Component {
   }
 
   handleAddQb = (e, qb) => {
-    this.props.addQb(e.target.value);
+    this.props.addQb(qb);
 
     const { id, name, teamAbbr, position } = qb;
     const teamId = this.props.team.team_id;
@@ -38,7 +39,7 @@ class Logos extends React.Component {
     this.setState({ counter: (this.state.counter += 1) });
   };
   handleAddRb = (e, rb) => {
-    this.props.addRb(e.target.value);
+    this.props.addRb(rb);
 
     const { id, name, teamAbbr, position } = rb;
     const teamId = this.props.team.team_id;
@@ -52,7 +53,7 @@ class Logos extends React.Component {
     this.setState({ counter: (this.state.counter += 1) });
   };
   handleAddWr = (e, wr) => {
-    this.props.addWr(e.target.value);
+    this.props.addWr(wr);
 
     const { id, name, teamAbbr, position } = wr;
     const teamId = this.props.team.team_id;
@@ -66,7 +67,7 @@ class Logos extends React.Component {
     this.setState({ counter: (this.state.counter += 1) });
   };
   handleAddTe = (e, te) => {
-    this.props.addTe(e.target.value);
+    this.props.addTe(te);
 
     const { id, name, teamAbbr, position } = te;
     const teamId = this.props.team.team_id;
@@ -80,7 +81,7 @@ class Logos extends React.Component {
     this.setState({ counter: (this.state.counter += 1) });
   };
   handleAddK = (e, k) => {
-    this.props.addK(e.target.value);
+    this.props.addK(k);
 
     const { id, name, teamAbbr, position } = k;
     const teamId = this.props.team.team_id;
@@ -171,9 +172,11 @@ class Logos extends React.Component {
     });
   };
   render() {
- 
     if (this.state.counter > 11) {
       return <Redirect to="/dashboard" />;
+    }
+    if (!this.state.data) {
+      return <Loader />;
     }
 
     return (
