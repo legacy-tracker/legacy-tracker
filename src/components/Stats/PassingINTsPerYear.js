@@ -30,7 +30,7 @@ export default function PassingINTsPerYear(props) {
   };
 
   return (
-    <div>
+    <div className="charts-container">
       <Line
         data={data}
         width={100}

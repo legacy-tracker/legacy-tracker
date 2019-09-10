@@ -4,6 +4,7 @@
   border: 1px solid black;
   display: flex;
   flex-direction: column;
+  overflow: scroll
   /* padding-top: 20px; */
 }
 .logo-rapper img {
@@ -17,16 +18,19 @@
 }
 .afc-container {
   display: flex;
-  height: 90vh;
+  height: 50vh;
   width: 50%;
+  border: solid red;
 }
 .nfc-container {
   display: flex;
-  height: 90vh;
+  height: 50vh;
   width: 50%;
+  border: solid red;
 }
 .nfl-container {
   height: 100%;
   width: 100%;
   display: flex;
+  border: solid black;
 }
