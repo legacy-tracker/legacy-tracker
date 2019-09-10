@@ -4,7 +4,12 @@ import "./statsStyles.css";
 
 export default function FantasyPointsByYear(props) {
   const data = {
-    labels: ["2016", "2017", "2018", "2019 (projected)"],
+    labels: [
+      props.stat2016 === undefined ? "N/A" : 2016,
+      props.stat2017 === undefined ? "N/A" : 2017,
+      props.stat2018 === undefined ? "N/A" : 2018,
+      "2019 (projected)"
+    ],
     datasets: [
       {
         label: "Fantasy Points",
