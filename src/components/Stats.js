@@ -325,11 +325,6 @@ export class Stats extends Component {
     return (
       <div>
         {this.handleRender()}
-        <StatsInput
-          handleIdInput={this.handleIdInput}
-          handleSelect={this.handleSelect}
-          handleSubmit={this.handleSubmit}
-        />
         <h1>
           {this.state.name} [{this.state.teamAbbr}]
         </h1>
