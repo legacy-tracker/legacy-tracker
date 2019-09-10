@@ -1,12 +1,13 @@
 import React from "react";
 import "../styles/dashboard.css";
 import Axios from "axios";
-export default class LegacyTeamList extends React.Component {
+import { connect } from "react-redux";
+import { getPlayers } from "../ducks/playersReducer";
+class LegacyTeamList extends React.Component {
   constructor() {
     super();
     this.state = {
-      teams: [],
-      players: []
+      teams: []
     };
   }
 
@@ -21,13 +22,13 @@ export default class LegacyTeamList extends React.Component {
   }
   handleRoster = team => {
     const { team_id } = team;
-    Axios.get(`/api/userPlayers/${team_id}`).then(res => {
-      this.setState({ players: res.data });
-    });
+    console.log(team_id);
+    this.props.getPlayers(team_id);
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.props.players);
+
     return (
       <aside className="my-teams">
         <h1 className="my-teams-header">My Teams</h1>
@@ -47,3 +48,14 @@ export default class LegacyTeamList extends React.Component {
     );
   }
 }
+
+let mapStatetoProps = reduxState => {
+  return {
+    players: reduxState.players.players
+  };
+};
+
+export default connect(
+  mapStatetoProps,
+  { getPlayers }
+)(LegacyTeamList);
