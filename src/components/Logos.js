@@ -176,11 +176,7 @@ class Logos extends React.Component {
       return <Redirect to="/dashboard" />;
     }
     if (!this.state.data) {
-<<<<<<< HEAD
-      return <LoaderIcons />;
-=======
       return <LoaderNews />;
->>>>>>> master
     }
 
     return (
