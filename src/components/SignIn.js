@@ -38,7 +38,7 @@ export class SignIn extends React.Component {
     if (this.props.redirect === true) {
       return <Redirect to="/dashboard" />;
     }
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div id="background">
         <div className="register-card">

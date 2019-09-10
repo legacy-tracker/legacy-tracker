@@ -40,7 +40,7 @@ module.exports = {
       });
     }
   },
-  logout: async function(req, res) {
+  logout: function(req, res) {
     req.session.destroy();
     return res.sendStatus(400);
   }
