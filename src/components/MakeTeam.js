@@ -13,7 +13,7 @@ class MakeTeam extends React.Component {
     this.props.changeName(e.target.value);
   };
   render() {
-    console.log(this.props);
+    
     return (
       <div className="modal-input-container">
         <input
