@@ -3,7 +3,12 @@ import { Line } from "react-chartjs-2";
 
 export default function FGsMade40(props) {
   const data = {
-    labels: ["2016", "2017", "2018", "2019 (projected)"],
+    labels: [
+      props.stat2016 === undefined ? "N/A" : 2016,
+      props.stat2017 === undefined ? "N/A" : 2017,
+      props.stat2018 === undefined ? "N/A" : 2018,
+      "2019 (projected)"
+    ],
     datasets: [
       {
         label: "Field Goals Made 40-49 Yards",
