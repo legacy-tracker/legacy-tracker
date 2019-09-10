@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
 import "../styles/stats.css";
 import StatsInput from "../components/Stats/StatsInput";
 import FantasyPointsByYear from "./Stats/FantasyPointsByYear";
@@ -36,12 +37,22 @@ export class Stats extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      input: this.props.id,
+      position: this.props.playerPosition
+    });
+    this.handleSubmit();
+  }
+
   handleIdInput = e => {
     this.setState({ input: e.target.value.toString() });
     console.log("HandleIdInput");
   };
 
   handleSubmit = () => {
+    console.log(this.props.id);
+    console.log(this.props.playerPosition);
     this.setState({
       s1: {},
       s2: {},
@@ -57,19 +68,19 @@ export class Stats extends Component {
       .all([
         axios.get(
           "https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&format=json&position=" +
-            this.state.position
+            this.props.playerPosition
         ),
         axios.get(
           "https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2017&format=json&position=" +
-            this.state.position
+            this.props.playerPosition
         ),
         axios.get(
           "https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2016&format=json&position=" +
-            this.state.position
+            this.props.playerPosition
         ),
         axios.get(
           "https://api.fantasy.nfl.com/v1/players/stats?statType=seasonProjectedStats&&format=json&position=" +
-            this.state.position
+            this.props.playerPosition
         )
       ])
       .then(([res1, res2, res3, res4]) => {
@@ -111,7 +122,6 @@ export class Stats extends Component {
 
   handleSelect = e => {
     this.setState({ position: e.target.value });
-    console.log("HandleSelect");
   };
 
   handleRender() {
@@ -310,6 +320,7 @@ export class Stats extends Component {
   }
 
   render() {
+    console.log(this.props);
     const { s1, s2, s3, s0 } = this.state;
     return (
       <div>
@@ -426,4 +437,11 @@ export class Stats extends Component {
   }
 }
 
-export default Stats;
+let mapStatetoProps = reduxState => {
+  return {
+    id: reduxState.players.id,
+    playerPosition: reduxState.players.playerPosition
+  };
+};
+
+export default connect(mapStatetoProps)(Stats);
