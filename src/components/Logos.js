@@ -184,6 +184,7 @@ class Logos extends React.Component {
         <div className="dashboard">
           <div className="logo-rapper">
             <h1 className="select">Select A Team</h1>
+            <h1>{this.state.counter}/12</h1>
             <div className="nfl-container">
               <div className="afc-container">
                 <div className="afc-east-rapper">
