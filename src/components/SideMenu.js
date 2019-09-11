@@ -26,7 +26,6 @@ class SideMenu extends Component {
   };
 
   render(props) {
-    console.log(this.props);
     return (
       <aside className="side-menu">
         <div className="create-team-card">
