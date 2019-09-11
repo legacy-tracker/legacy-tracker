@@ -38,7 +38,6 @@ class Dashboard extends React.Component {
     // if (this.props.redirect === false) {
     //   return <Redirect to="/" />;
     // }
-    console.log(this.props.redirect);
     return (
       <div>
         <div className="dashboard">
