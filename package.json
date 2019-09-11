@@ -46,5 +46,8 @@
     ]
   },
   "proxy": "http://localhost:6969",
-  "main": "server/index"
+  "main": "server/index",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
 }
