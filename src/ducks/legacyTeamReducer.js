@@ -11,19 +11,19 @@ const initState = {
   k: []
 };
 
-const CHANGE_YEAR = "CHANGE_YEAR";
-const CHANGE_NAME = "CHANGE_NAME";
-const ADD_TEAM = "ADD_TEAM";
-const ADD_Qb = "ADD_QB";
-const ADD_RB = "ADD_RB";
-const ADD_WR = "ADD_WR";
-const ADD_TE = "ADD_TE";
-const ADD_K = "ADD_K";
+export const CHANGE_YEAR = "CHANGE_YEAR";
+export const CHANGE_NAME = "CHANGE_NAME";
+export const ADD_TEAM = "ADD_TEAM";
+export const ADD_QB = "ADD_QB";
+export const ADD_RB = "ADD_RB";
+export const ADD_WR = "ADD_WR";
+export const ADD_TE = "ADD_TE";
+export const ADD_K = "ADD_K";
 
 export function addQb(value) {
   console.log(value);
   return {
-    type: ADD_Qb,
+    type: ADD_QB,
     payload: value
   };
 }
@@ -89,7 +89,7 @@ export default function reducer(state = initState, action) {
       return { ...state, name: payload };
     case `${ADD_TEAM}_FULFILLED`:
       return { ...state, team: payload };
-    case ADD_Qb:
+    case ADD_QB:
       return { ...state, qb: [...state.qb, payload] };
     case ADD_RB:
       return { ...state, rb: [...state.rb, payload] };

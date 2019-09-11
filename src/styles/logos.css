@@ -1,7 +1,7 @@
 .logo-rapper {
   height: 200vh;
   width: 100vw;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -21,19 +21,27 @@
   display: flex;
   height: 50vh;
   width: 50%;
-  border: solid red;
+  /* border: solid red; */
 }
 .nfc-container {
   display: flex;
   height: 50vh;
   width: 50%;
-  border: solid red;
+  /* border: solid red; */
 }
 .nfl-container {
-  height: 100%;
+  height: 150vh;
   width: 100%;
   display: flex;
-  border: solid black;
+  /* border: solid black; */
+}
+
+.divisions {
+  border: 2px solid red;
+  height: 50vh;
+}
+.nfl-logo-guy {
+  border: 2px solid red;
 }
 
 .position-players {
