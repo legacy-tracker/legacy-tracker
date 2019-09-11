@@ -3,3 +3,8 @@
   width: 100vw;
   border: 1px solid black;
 }
+
+.my-teams {
+  height: 1265px;
+  overflow: scroll;
+}

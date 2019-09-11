@@ -4,6 +4,7 @@ export default function NewsTeamList(props) {
   if (props.news[0] === undefined) {
     return <h1 className="loading">loading...</h1>;
   }
+
   return (
     <div>
       <img
