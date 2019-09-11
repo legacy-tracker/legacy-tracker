@@ -43,6 +43,13 @@ export class Stats extends Component {
       position: this.props.playerPosition
     });
     this.handleSubmit();
+    axios
+      .get(
+        "https://api.fantasy.nfl.com/v1/players/details?playerId=" +
+          `${this.state.input}` +
+          "&statType=seasonStatsformat=json"
+      )
+      .then(res => console.log(res));
   }
 
   handleIdInput = e => {
@@ -118,10 +125,6 @@ export class Stats extends Component {
           this.setState({ s0Pts: s0[0].seasonProjectedPts });
         }
       });
-  };
-
-  handleSelect = e => {
-    this.setState({ position: e.target.value });
   };
 
   handleRender() {
