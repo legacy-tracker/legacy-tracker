@@ -6,7 +6,8 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { addQb, addRb, addWr, addTe, addK } from "../ducks/legacyTeamReducer";
-import LoaderNews from "./LoaderNews";
+// import LoaderNews from "./LoaderNews";
+import LoaderIcons from "./Loader-Icons";
 
 class Logos extends React.Component {
   constructor() {
@@ -176,7 +177,7 @@ class Logos extends React.Component {
       return <Redirect to="/dashboard" />;
     }
     if (!this.state.data) {
-      return <LoaderNews />;
+      return <LoaderIcons />;
     }
 
     return (
