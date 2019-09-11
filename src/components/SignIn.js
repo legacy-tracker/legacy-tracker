@@ -27,9 +27,7 @@ export class SignIn extends React.Component {
 
   componentDidMount() {
     Axios.get("/api/user")
-      .then(res => {
-        console.log(res.data);
-      })
+      .then(res => {})
       .catch(err => {
         console.log(err);
       });

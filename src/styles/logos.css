@@ -4,7 +4,7 @@
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  overflow: scroll
+  overflow: scroll;
   /* padding-top: 20px; */
 }
 .logo-rapper img {
@@ -12,9 +12,10 @@
   padding: 2px;
 }
 .current-team {
-  height: 98vh;
+  height: 100vh;
   width: 20vw;
-  border: 1px solid red;
+  overflow: scroll;
+  min-width: 250px;
 }
 .afc-container {
   display: flex;
@@ -33,4 +34,18 @@
   width: 100%;
   display: flex;
   border: solid black;
+}
+
+.position-players {
+  border-top: 1px solid gray;
+}
+
+.logos {
+  min-width: 300px;
+}
+
+.player-name {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 2px;
 }

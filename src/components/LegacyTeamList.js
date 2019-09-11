@@ -34,22 +34,18 @@ class LegacyTeamList extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     const rosterNames = this.props.players.map(player => {
       return (
         <div>
-          <h1>{player.player_name}</h1>
-          <h5>{player.player_position}</h5>
-          <h5>{player.player_team}</h5>
-          <h5>{player.player_id}</h5>
           <Link to="/stats">
-            <button
+            <h2
+              className="player-name"
               onClick={() => {
                 this.handlePlayer(player);
               }}
             >
-              Stats
-            </button>
+              {player.player_name}
+            </h2>
           </Link>
         </div>
       );

@@ -51,8 +51,6 @@ export class Stats extends Component {
   };
 
   handleSubmit = () => {
-    console.log(this.props.id);
-    console.log(this.props.playerPosition);
     this.setState({
       s1: {},
       s2: {},
