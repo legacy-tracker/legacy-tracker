@@ -7,10 +7,10 @@ const initialState = {
   redirect: false
 };
 
-const LOGIN = "LOGIN";
-const REGISTER = "REGISTER";
-const LOGOUT = "LOGOUT";
-const UPDATE_USERNAME = "UPDATE_USERNAME";
+export const LOGIN = "LOGIN";
+export const REGISTER = "REGISTER";
+export const LOGOUT = "LOGOUT";
+export const UPDATE_USERNAME = "UPDATE_USERNAME";
 
 export function register(firstName, lastName, username, password) {
   let data = axios.post("/auth/register", {
