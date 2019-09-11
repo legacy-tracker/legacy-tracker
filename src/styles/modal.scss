@@ -7,6 +7,7 @@
   background: rgba(0, 0, 0, 0.83);
 
   .modal-main {
+    padding: 15px;
     position: fixed;
     background-color: #464242;
     width: 40%;
@@ -29,6 +30,8 @@
   }
   .modal-input-container {
     display: flex;
+    justify-content: center;
+    // align-items: center;
   }
   input {
     width: 80%;
@@ -39,7 +42,7 @@
   }
   select {
     height: 10%;
-    margin-top: 1em;
+    margin-top: 1.5em;
   }
   button {
     margin: 10px;
