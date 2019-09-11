@@ -186,7 +186,7 @@ class Logos extends React.Component {
             <h1 className="select">Select A Team</h1>
             <div className="nfl-container">
               <div className="afc-container">
-                <div className="afc-east-rapper">
+                <div className="divisions">
                   <h1>AFC East</h1>
 
                   <img
@@ -210,7 +210,7 @@ class Logos extends React.Component {
                     onClick={() => this.filterForTeam("NYJ")}
                   />
                 </div>
-                <div className="afc-north-rapper">
+                <div className="divisions">
                   <h1>AFC North</h1>
 
                   <img
@@ -234,7 +234,7 @@ class Logos extends React.Component {
                     onClick={() => this.filterForTeam("CIN")}
                   />
                 </div>
-                <div className="afc-south-rapper">
+                <div className="divisions">
                   <h1>AFC South</h1>
                   <img
                     src="http://i.nflcdn.com/static/site/7.5/img/teams/HOU/HOU_logo-80x90.gif"
@@ -257,7 +257,7 @@ class Logos extends React.Component {
                     onClick={() => this.filterForTeam("JAX")}
                   />
                 </div>
-                <div className="afc-west-rapper">
+                <div className="divisions">
                   <h1>AFC West</h1>
                   <img
                     src="http://i.nflcdn.com/static/site/7.5/img/teams/KC/KC_logo-80x90.gif"
@@ -282,7 +282,7 @@ class Logos extends React.Component {
                 </div>
               </div>
               <div className="nfc-container">
-                <div className="nfc-east-rapper">
+                <div className="divisions">
                   <h1>NFC East</h1>
                   <img
                     src="http://i.nflcdn.com/static/site/7.5/img/teams/DAL/DAL_logo-80x90.gif"
@@ -305,7 +305,7 @@ class Logos extends React.Component {
                     onClick={() => this.filterForTeam("NYG")}
                   />
                 </div>
-                <div className="nfc-north-rapper">
+                <div className="divisions">
                   <h1>NFC North</h1>
                   <img
                     src="http://i.nflcdn.com/static/site/7.5/img/teams/CHI/CHI_logo-80x90.gif"
@@ -328,7 +328,7 @@ class Logos extends React.Component {
                     onClick={() => this.filterForTeam("DET")}
                   />
                 </div>
-                <div className="nfc-south-rapper">
+                <div className="divisions">
                   <h1>NFC South</h1>
                   <img
                     src="http://i.nflcdn.com/static/site/7.5/img/teams/NO/NO_logo-80x90.gif"
@@ -351,7 +351,7 @@ class Logos extends React.Component {
                     onClick={() => this.filterForTeam("TB")}
                   />
                 </div>
-                <div className="nfc-south-rapper">
+                <div className="divisions">
                   <h1>NFC South</h1>
                   <img
                     src="http://i.nflcdn.com/static/site/7.5/img/teams/LA/LA_logo-80x90.gif"
@@ -374,15 +374,16 @@ class Logos extends React.Component {
                     onClick={() => this.filterForTeam("ARI")}
                   />
                 </div>
+                <br />
               </div>
             </div>
-
-            <img
-              src="https://static.nfl.com/static/content/public/static/wildcat/assets/img/application-shell/shield/default.svg"
-              alt="logg"
-              onClick={() => this.filterForTeam("")}
-            />
-
+            <div className="nfl-logo-guy">
+              <img
+                src="https://static.nfl.com/static/content/public/static/wildcat/assets/img/application-shell/shield/default.svg"
+                alt="logg"
+                onClick={() => this.filterForTeam("")}
+              />
+            </div>
             <h1>QBs</h1>
             {this.state.qb.map(qb => (
               <>
