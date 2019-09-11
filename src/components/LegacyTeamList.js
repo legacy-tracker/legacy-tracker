@@ -63,6 +63,7 @@ class LegacyTeamList extends React.Component {
                 <h1>{team.team_name}</h1>
                 <>
                   <button
+                    className="challenge-btns"
                     onClick={e => {
                       this.handleRoster(team);
                     }}
