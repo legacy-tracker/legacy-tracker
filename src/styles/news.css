@@ -1,3 +1,14 @@
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+.player-name {
+  color: black;
+}
+
 .small-logo {
   max-width: 75px;
   max-width: 75px;
@@ -77,7 +88,7 @@ p {
   height: 100%;
   top: 110px;
   left: 0%;
-  right: 10%;
+  right: 0;
   bottom: 0;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.835);
@@ -104,6 +115,13 @@ p {
 .team-logo {
   border-radius: 50%;
   margin: 11px;
+  height: 100px;
+  width: auto;
+}
+
+.nfl-logo {
+  height: 105px;
+  margin: 5px;
 }
 
 .close-button {
@@ -112,4 +130,42 @@ p {
 
 .loading {
   color: white;
+}
+
+.player-text {
+  font-size: 1.2em;
+  background: rgba(255, 255, 255, 0.9);
+  margin: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 300px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.new-popup {
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.835);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.835);
+}
+
+.position-text {
+  color: white;
+}
+
+.new-inner {
+  position: static;
 }
