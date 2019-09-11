@@ -6,9 +6,9 @@ const initState = {
   playerPosition: ""
 };
 
-const GET_PLAYERS = "GET_PLAYERS";
-const GET_ID = "GET_ID";
-const GET_POSITION = "GET_POSITION";
+export const GET_PLAYERS = "GET_PLAYERS";
+export const GET_ID = "GET_ID";
+export const GET_POSITION = "GET_POSITION";
 
 export function getPlayers(team) {
   let data = axios.get(`/api/userPlayers/${team}`).then(res => {
