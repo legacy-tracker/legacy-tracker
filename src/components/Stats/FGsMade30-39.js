@@ -39,7 +39,7 @@ export default function FGsMade30(props) {
       <Line
         data={data}
         width={100}
-        height={400}
+        height={500}
         options={{
           maintainAspectRatio: false,
           scales: {

@@ -5,3 +5,43 @@
   align-content: center;
   justify-content: space-around;
 }
+
+.real-gamestats{
+  /* border: solid blue; */
+  background-color: rgba(136, 136, 136, 0.329);
+
+}
+.line-guy{
+  border-top: 1px grey solid;
+}
+
+.schedule-container{
+  display: flex;
+  justify-content: center;
+  /* border: solid blue; */
+  height: auto;
+  width: auto;
+
+} 
+.charts-container{
+  width: 100%;
+}
+.real-video-container{
+  /* border: solid red; */
+  width: auto;
+  height: 100vh;
+}
+
+.new-news-container{
+  display:flex;
+  height: 100vh;
+  width: auto;
+  justify-content: center;
+  /* border: solid blue; */
+  background-image: url('https://media.bizj.us/view/img/978801/football*1200xx1500-844-0-78.jpg');
+  background-size: cover;
+}
+
+.vinny-div{
+  padding-top: 100px;
+}
