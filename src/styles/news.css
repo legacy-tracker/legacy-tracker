@@ -169,3 +169,44 @@ p {
 .new-inner {
   position: static;
 }
+
+.news-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(160, 160, 161, 0.651);
+  height: 500px;
+  overflow: scroll;
+  width: 45vw;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.video-thumbnail {
+  height: auto;
+  width: auto;
+  margin: 5px;
+  margin-right: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.video-text {
+  padding-right: 5px;
+}
+
+.video-container {
+  display: flex;
+  background-color: rgb(211, 210, 210);
+  align-items: center;
+  border: 1px solid gray;
+}
+
+.videos {
+  overflow: scroll;
+  height: 500px;
+  width: 46.7vw;
+}

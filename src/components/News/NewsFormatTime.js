@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function NewsFormatTime(props) {
-  var time = props.time;
+  var time = props.time.toString();
 
   const splitTime = time.split(" ");
 
@@ -156,11 +156,11 @@ export default function NewsFormatTime(props) {
     }
 
     if (hour > 9 && hour < 13 && hour != 12) {
-      return hour + ":" + minute + " AM";
+      return hour + ":" + minute + " AM PT";
     } else if (hour == 12) {
-      return hour + ":" + minute + " PM";
+      return hour + ":" + minute + " PM PT";
     } else {
-      return newHour + ":" + minute + " " + dayOrNight;
+      return newHour + ":" + minute + " " + dayOrNight + " PT";
     }
   }
 
