@@ -175,15 +175,18 @@ p {
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  background-color: rgba(160, 160, 161, 0.651);
-  height: 500px;
+  background-color: rgba(160, 160, 161);
+  height: 98%;
   overflow: scroll;
   width: 45vw;
+  /* border: solid red; */
 }
 
 .video-container {
+  border: solid red;
   display: flex;
   flex-direction: row;
+
 }
 
 .video-thumbnail {
@@ -200,13 +203,18 @@ p {
 
 .video-container {
   display: flex;
-  background-color: rgb(211, 210, 210);
+  background-color: rgba(136, 136, 136, 0.329);
+  
   align-items: center;
   border: 1px solid gray;
 }
 
 .videos {
   overflow: scroll;
-  height: 500px;
-  width: 46.7vw;
+
+  height: 100%;
+
+  margin: 0;
+  
 }
+

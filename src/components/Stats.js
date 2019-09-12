@@ -18,6 +18,7 @@ import FGsMade30 from "./Stats/FGsMade30-39";
 import FGsMade40 from "./Stats/FGsMade40-49";
 import FGsMade50 from "./Stats/FGsMade50+";
 import NewsFormatTime from "./News/NewsFormatTime";
+import Header from "./Header";
 
 export class Stats extends Component {
   constructor() {
@@ -147,7 +148,7 @@ export class Stats extends Component {
       const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
-        <div className="chart-container">
+        <div className="chart-container" id="chartssss">
           <FantasyPointsByYear
             stat2019={s0Pts}
             stat2018={s1Pts}
@@ -190,7 +191,7 @@ export class Stats extends Component {
       const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
-        <div className="chart-container">
+        <div className="chart-container" id="chartssss">
           <FantasyPointsByYear
             stat2019={s0Pts}
             stat2018={s1Pts}
@@ -233,7 +234,7 @@ export class Stats extends Component {
       const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
-        <div className="chart-container">
+        <div className="chart-container" id="chartssss">
           <FantasyPointsByYear
             stat2019={s0Pts}
             stat2018={s1Pts}
@@ -264,7 +265,7 @@ export class Stats extends Component {
       const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
-        <div className="chart-container">
+        <div className="chart-container" id="chartssss">
           <FantasyPointsByYear
             stat2019={s0Pts}
             stat2018={s1Pts}
@@ -295,7 +296,7 @@ export class Stats extends Component {
       const { s0Pts, s1Pts, s2Pts, s3Pts, s0, s1, s2, s3 } = this.state;
 
       return (
-        <div className="chart-container">
+        <div className="chart-container" id="chartssss">
           <FantasyPointsByYear
             stat2019={s0Pts}
             stat2018={s1Pts}
@@ -346,12 +347,14 @@ export class Stats extends Component {
         .replace(/&amp;/g, "&")
         .replace(/&quot;/g, '"');
       return (
-        <div className="news-text" key={newsItem.id}>
-          <h3 classname="news-item-headline">
-            {this.state.name} {newsItem.headline}
-          </h3>
-          <NewsFormatTime time={newsItem.timestamp} />
-          <p>{filteredAnalysis}</p>
+        <div className="newsithink">
+          <div className="news-text" key={newsItem.id}>
+            <h3 classname="news-item-headline">
+              {this.state.name} {newsItem.headline}
+            </h3>
+            <NewsFormatTime time={newsItem.timestamp} />
+            <p>{filteredAnalysis}</p>
+          </div>
         </div>
       );
     });
@@ -360,68 +363,72 @@ export class Stats extends Component {
       if (game.gameResult !== false) {
         const { stats } = game;
         return (
-          <div key={game.id}>
-            <h3>
-              Week {game.id} Opponent: {game.opponent} result: {game.gameResult}{" "}
-              - {game.gameDate}
-            </h3>
-            {stats[442] === undefined ? null : <h3>Attempts: {stats[2]} </h3>}
-            {stats[3] === undefined ? null : <h3>Completions: {stats[3]}</h3>}
-            {stats[5] === undefined ? null : <h3>Yards: {stats[5]}</h3>}
-            {stats[6] === undefined ? null : <h3>TD's: {stats[6]}</h3>}
-            {stats[7] === undefined ? null : <h3>INT: {stats[7]}</h3>}
-            {stats[13] === undefined ? null : (
-              <h3>Rush Attempts: {stats[13]}</h3>
-            )}
-            {stats[14] === undefined ? null : <h3>Rush Yards: {stats[14]}</h3>}
-            {stats[15] === undefined ? null : <h3>Rush TD's: {stats[15]}</h3>}
-            {stats[31] === undefined ? null : <h3>Fumbles: {stats[31]}</h3>}
-            {stats[20] === undefined ? null : <h3>Receptions {stats[20]}</h3>}
-            {stats[21] === undefined ? null : (
-              <h3>Recieving Yards: {stats[21]}</h3>
-            )}
-            {stats[22] === undefined ? null : (
-              <h3>Recieving TD's: {stats[22]}</h3>
-            )}
-            {stats[33] === undefined ? null : <h3>PAT's Made:{stats[33]}</h3>}
-            {stats[34] === undefined ? null : (
-              <h3>PAT's Missed: {stats[34]}</h3>
-            )}
-            {stats[35] === undefined ? null : (
-              <h3>0 - 19 Yards Made: {stats[35]}</h3>
-            )}
-            {stats[40] === undefined ? null : (
-              <h3>0 - 19 Yards Missed: {stats[40]}</h3>
-            )}
-            {stats[41] === undefined ? null : (
-              <h3>20 - 29 Yards Made: {stats[41]}</h3>
-            )}
-            {stats[36] === undefined ? null : (
-              <h3>20 - 29 Yards Missed: {stats[36]}</h3>
-            )}
-            {stats[37] === undefined ? null : (
-              <h3>30 - 39 Yards Made:{stats[37]}</h3>
-            )}
-            {stats[38] === undefined ? null : (
-              <h3>30 - 39 Yards Missed:{stats[38]}</h3>
-            )}
-            {stats[42] === undefined ? null : (
-              <h3>40 - 49 Yards Made:{stats[42]}</h3>
-            )}
-            {stats[43] === undefined ? null : (
-              <h3>40 - 49 Yards Missed:{stats[43]}</h3>
-            )}
-            {stats[39] === undefined ? null : (
-              <h3>50+ Yards Made:{stats[39]}</h3>
-            )}
-            {stats[44] === undefined ? null : (
-              <h3>50+ Yards Missed:{stats[44]}</h3>
-            )}
+          <div className="schedule-container">
+            <div key={game.id}>
+              <h3>
+                Week {game.id} Opponent: {game.opponent} result:{" "}
+                {game.gameResult} - {game.gameDate}
+              </h3>
+              {stats[442] === undefined ? null : <h3>Attempts: {stats[2]} </h3>}
+              {stats[3] === undefined ? null : <h3>Completions: {stats[3]}</h3>}
+              {stats[5] === undefined ? null : <h3>Yards: {stats[5]}</h3>}
+              {stats[6] === undefined ? null : <h3>TD's: {stats[6]}</h3>}
+              {stats[7] === undefined ? null : <h3>INT: {stats[7]}</h3>}
+              {stats[13] === undefined ? null : (
+                <h3>Rush Attempts: {stats[13]}</h3>
+              )}
+              {stats[14] === undefined ? null : (
+                <h3>Rush Yards: {stats[14]}</h3>
+              )}
+              {stats[15] === undefined ? null : <h3>Rush TD's: {stats[15]}</h3>}
+              {stats[31] === undefined ? null : <h3>Fumbles: {stats[31]}</h3>}
+              {stats[20] === undefined ? null : <h3>Receptions {stats[20]}</h3>}
+              {stats[21] === undefined ? null : (
+                <h3>Recieving Yards: {stats[21]}</h3>
+              )}
+              {stats[22] === undefined ? null : (
+                <h3>Recieving TD's: {stats[22]}</h3>
+              )}
+              {stats[33] === undefined ? null : <h3>PAT's Made:{stats[33]}</h3>}
+              {stats[34] === undefined ? null : (
+                <h3>PAT's Missed: {stats[34]}</h3>
+              )}
+              {stats[35] === undefined ? null : (
+                <h3>0 - 19 Yards Made: {stats[35]}</h3>
+              )}
+              {stats[40] === undefined ? null : (
+                <h3>0 - 19 Yards Missed: {stats[40]}</h3>
+              )}
+              {stats[41] === undefined ? null : (
+                <h3>20 - 29 Yards Made: {stats[41]}</h3>
+              )}
+              {stats[36] === undefined ? null : (
+                <h3>20 - 29 Yards Missed: {stats[36]}</h3>
+              )}
+              {stats[37] === undefined ? null : (
+                <h3>30 - 39 Yards Made:{stats[37]}</h3>
+              )}
+              {stats[38] === undefined ? null : (
+                <h3>30 - 39 Yards Missed:{stats[38]}</h3>
+              )}
+              {stats[42] === undefined ? null : (
+                <h3>40 - 49 Yards Made:{stats[42]}</h3>
+              )}
+              {stats[43] === undefined ? null : (
+                <h3>40 - 49 Yards Missed:{stats[43]}</h3>
+              )}
+              {stats[39] === undefined ? null : (
+                <h3>50+ Yards Made:{stats[39]}</h3>
+              )}
+              {stats[44] === undefined ? null : (
+                <h3>50+ Yards Missed:{stats[44]}</h3>
+              )}
+            </div>
           </div>
         );
       } else {
         return (
-          <div>
+          <div id="random" className="line-guy">
             <h3>
               Week {game.id} Opponent:{" "}
               {game.opponent === false ? (
@@ -438,39 +445,50 @@ export class Stats extends Component {
 
     const videos = this.state.videos.map(video => {
       return (
-        <div className="video-container">
-          <a
-            target="_blank"
-            href={`http://www.nfl.com/videos/nfl-game-highlights/${video.id}`}
-          >
-            <img
-              className="video-thumbnail"
-              src={video.mediumPhotoUrl}
-              href={`http://www.nfl.com/videos/nfl-game-highlights/${video.id}`}
+        <div className="guy">
+          <div className="video-container">
+            <a
               target="_blank"
-            />
-          </a>
-          <div className="video-text">
-            <h3>
-              {video.title} {video.gameClock}
-            </h3>
+              href={`http://www.nfl.com/videos/nfl-game-highlights/${video.id}`}
+            >
+              <img
+                className="video-thumbnail"
+                src={video.mediumPhotoUrl}
+                href={`http://www.nfl.com/videos/nfl-game-highlights/${video.id}`}
+                target="_blank"
+              />
+            </a>
+            <div className="video-text">
+              <h3>
+                {video.title} {video.gameClock}
+              </h3>
 
-            <p>{video.description}</p>
+              <p>{video.description}</p>
+            </div>
           </div>
         </div>
       );
     });
     return (
       <div>
-        <h1>
-          [{this.state.teamAbbr}] {this.state.name} [{this.state.position}] #
-          {this.state.number}
-        </h1>
+        <Header />
+        <div className="vinny-div">
+          <h1>
+            [{this.state.teamAbbr}] {this.state.name} [{this.state.position}] #
+            {this.state.number}
+          </h1>
+        </div>
         <h2>Status: {this.state.status}</h2>
-        {gameStats}
-        <div className="videos">{videos}</div>
+        <div className="real-gamestats" id="yeaaaaaaaa">
+          <div className="gamestats">{gameStats}</div>
+        </div>
+        <div className="new-news-container" id="playboy">
+          <div className="news-player">{news}</div>
+        </div>
+        <div className="real-video-container" id="stats-scroll">
+          <div className="videos">{videos}</div>
+        </div>
         {/* News */}
-        <div className="news-player">{news}</div>
         {/* News End */}
         {/* current season stats */}
 
@@ -479,105 +497,6 @@ export class Stats extends Component {
         {/* current season stats end */}
 
         {this.handleRender()}
-        <div className="season-stats">
-          <div>
-            <h3>2019(Projections): {this.state.s0Pts} points</h3>
-            <h5>Games Played: {s0[1]}</h5>
-            <h5>Passing Attempts: {s0[2]}</h5>
-            <h5>Completions: {s0[3]}</h5>
-            <h5>Completion Rate: {Math.ceil(1000 * (s0[3] / s0[2])) / 10}%</h5>
-            <h5>Passing Yards: {s0[5]}</h5>
-            <h5>TD's: {s0[6]}</h5>
-            <h5>INT: {s0[7]}</h5>
-            <h5>{(s0[6] / s0[7]).toFixed(2)} TD / INT</h5>
-            <h5>Rush Attempts: {s0[13]}</h5>
-            <h5>Rush Yards: {s0[14]}</h5>
-            <h5>
-              Rush Yards / Attempt {Math.ceil(100 * (s0[14] / s0[13])) / 100}
-            </h5>
-            <h5>Rush TD's: {s0[15]}</h5>
-            <h5>Fumbles: {s0[31]}</h5>
-            <h5>Receptions: {s0[20]}</h5>
-            <h5>Receiving Yards: {s0[21]}</h5>
-            <h5>
-              Yards / Reception {Math.ceil(100 * (s0[21] / s0[20])) / 100}
-            </h5>
-            <h5>Receiving TD's: {s0[22]}</h5>
-          </div>
-
-          <div>
-            <h3>2018: {this.state.s1Pts} points</h3>
-            <h5>Games Played: {s1[1]}</h5>
-            <h5>Passing Attempts: {s1[2]}</h5>
-            <h5>Completions: {s1[3]}</h5>
-            <h5>Completion Rate: {Math.ceil(1000 * (s1[3] / s1[2])) / 10}%</h5>
-            <h5>Passing Yards: {s1[5]}</h5>
-            <h5>TD's: {s1[6]}</h5>
-            <h5>INT: {s1[7]}</h5>
-            <h5>{(s1[6] / s1[7]).toFixed(2)} TD / INT</h5>
-            <h5>Rush Attempts: {s1[13]}</h5>
-            <h5>Rush Yards: {s1[14]}</h5>
-            <h5>
-              Rush Yards / Attempt {Math.ceil(100 * (s1[14] / s1[13])) / 100}
-            </h5>
-            <h5>Rush TD's: {s1[15]}</h5>
-            <h5>Fumbles: {s1[31]}</h5>
-            <h5>Receptions: {s1[20]}</h5>
-            <h5>Receiving Yards: {s1[21]}</h5>
-            <h5>
-              Yards / Reception {Math.ceil(100 * (s1[21] / s1[20])) / 100}
-            </h5>
-            <h5>Receiving TD's: {s1[22]}</h5>
-          </div>
-          <div>
-            <h3>2017: {this.state.s2Pts} points</h3>
-            <h5>Games Played: {s2[1]}</h5>
-            <h5>Passing Attempts: {s2[2]}</h5>
-            <h5>Completions: {s2[3]}</h5>
-            <h5>Completion Rate: {Math.ceil(1000 * (s2[3] / s2[2])) / 10}%</h5>
-            <h5>Passing Yards: {s2[5]}</h5>
-            <h5>TD's: {s2[6]}</h5>
-            <h5>INT: {s2[7]}</h5>
-            <h5>{(s2[6] / s2[7]).toFixed(2)} TD / INT</h5>
-            <h5>Rush Attempts: {s2[13]}</h5>
-            <h5>Rush Yards: {s2[14]}</h5>
-            <h5>
-              Rush Yards / Attempt {Math.ceil(100 * (s2[14] / s2[13])) / 100}
-            </h5>
-            <h5>Rush TD's: {s2[15]}</h5>
-            <h5>Fumbles: {s2[31]}</h5>
-            <h5>Receptions: {s2[20]}</h5>
-            <h5>Receiving Yards: {s2[21]}</h5>
-            <h5>
-              Yards / Reception {Math.ceil(100 * (s2[21] / s2[20])) / 100}
-            </h5>
-            <h5>Receiving TD's: {s2[22]}</h5>
-          </div>
-          <div>
-            <h3>2016: {this.state.s3Pts} points</h3>
-            <h5>Games Played: {s3[1]}</h5>
-            <h5>Passing Attempts: {s3[2]}</h5>
-            <h5>Completions: {s3[3]}</h5>
-            <h5>Completion Rate: {Math.ceil(1000 * (s3[3] / s3[2])) / 10}%</h5>
-            <h5>Passing Yards: {s3[5]}</h5>
-            <h5>TD's: {s3[6]}</h5>
-            <h5>INT: {s3[7]}</h5>
-            <h5>{(s3[6] / s3[7]).toFixed(2)} TD / INT</h5>
-            <h5>Rush Attempts: {s3[13]}</h5>
-            <h5>Rush Yards: {s3[14]}</h5>
-            <h5>
-              Rush Yards / Attempt {Math.ceil(100 * (s3[14] / s3[13])) / 100}
-            </h5>
-            <h5>Rush TD's: {s3[15]}</h5>
-            <h5>Fumbles: {s3[31]}</h5>
-            <h5>Receptions: {s3[20]}</h5>
-            <h5>Receiving Yards: {s3[21]}</h5>
-            <h5>
-              Yards / Reception {Math.ceil(100 * (s3[21] / s3[20])) / 100}
-            </h5>
-            <h5>Receiving TD's: {s3[22]}</h5>
-          </div>
-        </div>
       </div>
     );
   }
