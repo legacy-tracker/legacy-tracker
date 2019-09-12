@@ -17,6 +17,7 @@ import FGsMade20 from "./Stats/FGsMade20-29";
 import FGsMade30 from "./Stats/FGsMade30-39";
 import FGsMade40 from "./Stats/FGsMade40-49";
 import FGsMade50 from "./Stats/FGsMade50+";
+import NewsFormatTime from "./News/NewsFormatTime";
 
 export class Stats extends Component {
   constructor() {
@@ -26,14 +27,19 @@ export class Stats extends Component {
       s2: {},
       s3: {},
       s0: {},
-      input: "2506363",
-      position: "QB",
+      input: "",
+      position: "",
       name: "",
       teamAbbr: "",
       s1Pts: 0,
       s2Pts: 0,
       s3Pts: 0,
-      s0Pts: 0
+      s0Pts: 0,
+      personalData: [],
+      number: 0,
+      news: [],
+      gameStats: [],
+      videos: []
     };
   }
 
@@ -43,6 +49,22 @@ export class Stats extends Component {
       position: this.props.playerPosition
     });
     this.handleSubmit();
+    axios
+      .get(
+        `https://api.fantasy.nfl.com/v1/players/details?playerId=
+          ${this.props.id}
+          &statType=seasonStatsformat=json`
+      )
+      .then(res =>
+        this.setState({
+          personalData: res.data.players[0],
+          number: res.data.players[0].jerseyNumber,
+          status: res.data.players[0].status,
+          news: res.data.players[0].notes,
+          gameStats: res.data.players[0].weeks,
+          videos: res.data.players[0].videos
+        })
+      );
   }
 
   handleIdInput = e => {
@@ -118,10 +140,6 @@ export class Stats extends Component {
           this.setState({ s0Pts: s0[0].seasonProjectedPts });
         }
       });
-  };
-
-  handleSelect = e => {
-    this.setState({ position: e.target.value });
   };
 
   handleRender() {
@@ -320,12 +338,146 @@ export class Stats extends Component {
   }
 
   render() {
+    console.log(this.state.personalData);
     const { s1, s2, s3, s0 } = this.state;
+    const news = this.state.news.map(newsItem => {
+      const filteredAnalysis = newsItem.analysis
+        .replace(/&apos;/g, "'")
+        .replace(/&amp;/g, "&")
+        .replace(/&quot;/g, '"');
+      return (
+        <div className="news-text" key={newsItem.id}>
+          <h3 classname="news-item-headline">
+            {this.state.name} {newsItem.headline}
+          </h3>
+          <NewsFormatTime time={newsItem.timestamp} />
+          <p>{filteredAnalysis}</p>
+        </div>
+      );
+    });
+
+    const gameStats = this.state.gameStats.map(game => {
+      if (game.gameResult !== false) {
+        const { stats } = game;
+        return (
+          <div key={game.id}>
+            <h3>
+              Week {game.id} Opponent: {game.opponent} result: {game.gameResult}{" "}
+              - {game.gameDate}
+            </h3>
+            {stats[442] === undefined ? null : <h3>Attempts: {stats[2]} </h3>}
+            {stats[3] === undefined ? null : <h3>Completions: {stats[3]}</h3>}
+            {stats[5] === undefined ? null : <h3>Yards: {stats[5]}</h3>}
+            {stats[6] === undefined ? null : <h3>TD's: {stats[6]}</h3>}
+            {stats[7] === undefined ? null : <h3>INT: {stats[7]}</h3>}
+            {stats[13] === undefined ? null : (
+              <h3>Rush Attempts: {stats[13]}</h3>
+            )}
+            {stats[14] === undefined ? null : <h3>Rush Yards: {stats[14]}</h3>}
+            {stats[15] === undefined ? null : <h3>Rush TD's: {stats[15]}</h3>}
+            {stats[31] === undefined ? null : <h3>Fumbles: {stats[31]}</h3>}
+            {stats[20] === undefined ? null : <h3>Receptions {stats[20]}</h3>}
+            {stats[21] === undefined ? null : (
+              <h3>Recieving Yards: {stats[21]}</h3>
+            )}
+            {stats[22] === undefined ? null : (
+              <h3>Recieving TD's: {stats[22]}</h3>
+            )}
+            {stats[33] === undefined ? null : <h3>PAT's Made:{stats[33]}</h3>}
+            {stats[34] === undefined ? null : (
+              <h3>PAT's Missed: {stats[34]}</h3>
+            )}
+            {stats[35] === undefined ? null : (
+              <h3>0 - 19 Yards Made: {stats[35]}</h3>
+            )}
+            {stats[40] === undefined ? null : (
+              <h3>0 - 19 Yards Missed: {stats[40]}</h3>
+            )}
+            {stats[41] === undefined ? null : (
+              <h3>20 - 29 Yards Made: {stats[41]}</h3>
+            )}
+            {stats[36] === undefined ? null : (
+              <h3>20 - 29 Yards Missed: {stats[36]}</h3>
+            )}
+            {stats[37] === undefined ? null : (
+              <h3>30 - 39 Yards Made:{stats[37]}</h3>
+            )}
+            {stats[38] === undefined ? null : (
+              <h3>30 - 39 Yards Missed:{stats[38]}</h3>
+            )}
+            {stats[42] === undefined ? null : (
+              <h3>40 - 49 Yards Made:{stats[42]}</h3>
+            )}
+            {stats[43] === undefined ? null : (
+              <h3>40 - 49 Yards Missed:{stats[43]}</h3>
+            )}
+            {stats[39] === undefined ? null : (
+              <h3>50+ Yards Made:{stats[39]}</h3>
+            )}
+            {stats[44] === undefined ? null : (
+              <h3>50+ Yards Missed:{stats[44]}</h3>
+            )}
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <h3>
+              Week {game.id} Opponent:{" "}
+              {game.opponent === false ? (
+                <h3>BYE</h3>
+              ) : (
+                <h3>{game.opponent}</h3>
+              )}{" "}
+            </h3>
+            {game.gameDate}
+          </div>
+        );
+      }
+    });
+
+    const videos = this.state.videos.map(video => {
+      return (
+        <div className="video-container">
+          <a
+            target="_blank"
+            href={`http://www.nfl.com/videos/nfl-game-highlights/${video.id}`}
+          >
+            <img
+              className="video-thumbnail"
+              src={video.mediumPhotoUrl}
+              href={`http://www.nfl.com/videos/nfl-game-highlights/${video.id}`}
+              target="_blank"
+            />
+          </a>
+          <div className="video-text">
+            <h3>
+              {video.title} {video.gameClock}
+            </h3>
+
+            <p>{video.description}</p>
+          </div>
+        </div>
+      );
+    });
     return (
       <div>
         <h1>
-          {this.state.name} [{this.state.teamAbbr}]
+          [{this.state.teamAbbr}] {this.state.name} [{this.state.position}] #
+          {this.state.number}
         </h1>
+        <h2>Status: {this.state.status}</h2>
+        {gameStats}
+        <div className="videos">{videos}</div>
+        {/* News */}
+        <div className="news-player">{news}</div>
+        {/* News End */}
+        {/* current season stats */}
+
+        <div className=""></div>
+
+        {/* current season stats end */}
+
         {this.handleRender()}
         <div className="season-stats">
           <div>
