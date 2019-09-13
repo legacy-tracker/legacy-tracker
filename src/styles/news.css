@@ -119,6 +119,10 @@ p {
   width: auto;
 }
 
+.big {
+  height: 150px;
+}
+
 .nfl-logo {
   height: 105px;
   margin: 5px;
@@ -186,7 +190,6 @@ p {
   border: solid red;
   display: flex;
   flex-direction: row;
-
 }
 
 .video-thumbnail {
@@ -204,7 +207,7 @@ p {
 .video-container {
   display: flex;
   background-color: rgba(136, 136, 136, 0.329);
-  
+
   align-items: center;
   border: 1px solid gray;
 }
@@ -215,6 +218,4 @@ p {
   height: 100%;
 
   margin: 0;
-  
 }
-

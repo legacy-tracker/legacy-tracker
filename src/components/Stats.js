@@ -473,7 +473,12 @@ export class Stats extends Component {
       <div>
         <Header />
         <div className="vinny-div">
+          <img
+            className="team-logo big"
+            src={`http://i.nflcdn.com/static/site/7.5/img/teams/${this.state.teamAbbr}/${this.state.teamAbbr}_logo-80x90.gif`}
+          />
           <h1>
+            {" "}
             [{this.state.teamAbbr}] {this.state.name} [{this.state.position}] #
             {this.state.number}
           </h1>

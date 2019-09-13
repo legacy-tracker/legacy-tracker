@@ -492,7 +492,10 @@ class Logos extends React.Component {
                 className="team-logo nfl-logo"
                 src="https://static.nfl.com/static/content/public/static/wildcat/assets/img/application-shell/shield/default.svg"
                 alt="logo"
-                onClick={() => this.filterForTeam("")}
+                onClick={() => {
+                  this.filterForTeam("");
+                  this.openPopup();
+                }}
               />
             </div>
 
