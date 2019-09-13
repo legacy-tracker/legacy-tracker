@@ -437,7 +437,7 @@ export class Stats extends Component {
                 <h3>{game.opponent}</h3>
               )}{" "}
             </h3>
-            {game.gameDate}
+            {game.gameDate} PT
           </div>
         );
       }
@@ -473,7 +473,16 @@ export class Stats extends Component {
       <div>
         <Header />
         <div className="vinny-div">
+          <img
+            className="team-logo big"
+            src={
+              this.state.teamAbbr !== ""
+                ? `http://i.nflcdn.com/static/site/7.5/img/teams/${this.state.teamAbbr}/${this.state.teamAbbr}_logo-80x90.gif`
+                : "https://www.thewrap.com/wp-content/uploads/2016/01/NFL-logo.jpg"
+            }
+          />
           <h1>
+            {" "}
             [{this.state.teamAbbr}] {this.state.name} [{this.state.position}] #
             {this.state.number}
           </h1>
