@@ -13,7 +13,7 @@
     "express-session": "^1.16.2",
     "lodash": "^4.17.15",
     "massive": "^6.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "react": "^16.9.0",
     "react-background-slideshow": "^1.0.4",
     "react-chartjs-2": "^2.7.6",
