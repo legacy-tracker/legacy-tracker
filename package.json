@@ -9,7 +9,7 @@
     "chart.js": "^2.8.0",
     "cypress": "^3.4.1",
     "dotenv": "^8.1.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.16.2",
     "lodash": "^4.17.15",
     "massive": "^6.0.0",
